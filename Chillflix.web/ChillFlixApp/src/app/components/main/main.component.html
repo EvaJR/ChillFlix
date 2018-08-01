@@ -1,3 +1,26 @@
-<p>
-  main works!
-</p>
+ <!-- Page Content -->
+ <div class="container">
+  <p></p>
+   <input [(ngModel)]="newMovie"/>
+   <p></p>
+   <button (click)="addMovie()">Add link to movie</button>
+
+ <h1 class="my-4 text-center text-lg-left">Movies</h1>
+
+ <div class="row text-center text-lg-left">
+
+       
+
+     
+
+       <div *ngFor="let movie of movies" class="col-lg-3 col-md-4 col-xs-6">
+           <a href="#" class="d-block mb-4 h-100">
+               <img class="img-fluid img-thumbnail" src="{{movie.link}}" alt="">
+           </a>
+         </div>
+   
+ </div>
+
+
+
+</div>
