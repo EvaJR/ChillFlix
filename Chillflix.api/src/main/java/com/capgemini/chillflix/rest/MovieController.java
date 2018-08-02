@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("api/movies")
 public class MovieController {
@@ -16,36 +18,37 @@ public class MovieController {
     private MovieService movieService;
 
     @PostMapping
-    @CrossOrigin(origins = "https://localhost:4200")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<Movie> create(@RequestBody Movie newMovie){
         this.movieService.create(newMovie);
         return new ResponseEntity<>(newMovie, HttpStatus.CREATED);
     }
 
     @GetMapping
-    @CrossOrigin(origins = "https://localhost:4200")
+    @CrossOrigin(origins = "http://localhost:4200")
     public Iterable<Movie> list() {
         return this.movieService.list();
     }
 
-    @GetMapping("{id")
-    @CrossOrigin(origins = "https://localhost:4200")
+    @GetMapping("{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public Movie findById(@PathVariable long id){
         return this.movieService.findById(id);
     }
 
-    @DeleteMapping("{id")
-    @CrossOrigin(origins = "https://localhost:4200")
+    @DeleteMapping("{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public void delete(@PathVariable long id){
         this.movieService.deleteById(id);
     }
 
-    @PutMapping(value = "{id")
-    @CrossOrigin(origins = "https://localhost:4200")
+    @PutMapping(value = "{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public Movie updateById(@PathVariable long id, @RequestBody Movie update){
         return this.movieService.updateById(id, update);
     }
 
+    
     public MovieService getMovieService(){
         return this.movieService;
     }
