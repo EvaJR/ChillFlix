@@ -8,8 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping("api/movies")
 public class MovieController {
@@ -47,7 +45,6 @@ public class MovieController {
     public Movie updateById(@PathVariable long id, @RequestBody Movie update){
         return this.movieService.updateById(id, update);
     }
-
 
     public MovieService getMovieService(){
         return this.movieService;
