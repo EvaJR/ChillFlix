@@ -28,19 +28,19 @@ public class MovieController {
         return this.movieService.list();
     }
 
-    @GetMapping("{id")
+    @GetMapping("{id}")
     @CrossOrigin(origins = "http://localhost:4200")
     public Movie findById(@PathVariable long id){
         return this.movieService.findById(id);
     }
 
-    @DeleteMapping("{id")
+    @DeleteMapping("{id}")
     @CrossOrigin(origins = "http://localhost:4200")
     public void delete(@PathVariable long id){
         this.movieService.deleteById(id);
     }
 
-    @PutMapping(value = "{id")
+    @PutMapping(value = "{id}")
     @CrossOrigin(origins = "http://localhost:4200")
     public Movie updateById(@PathVariable long id, @RequestBody Movie update){
         return this.movieService.updateById(id, update);
