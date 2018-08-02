@@ -7,6 +7,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavComponent } from './components/nav/nav.component';
+import { MovieService } from './components/services/movie.service';
+import { HttpClientModule } from '../../node_modules/@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,10 @@ import { NavComponent } from './components/nav/nav.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [MovieService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

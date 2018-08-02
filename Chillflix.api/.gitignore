@@ -25,3 +25,4 @@
 /.nb-gradle/
 
 ### Add application.properties ###
+application.properties
