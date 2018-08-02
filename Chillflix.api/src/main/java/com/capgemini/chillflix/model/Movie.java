@@ -16,6 +16,7 @@ public class Movie extends Media implements Serializable {
     private String url;
     private Genre genre;
     private String description;
+    private String imageUrl;
 
     public long getId() {
         return id;
@@ -51,6 +52,14 @@ public class Movie extends Media implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImageUrl() {
+        return this.imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
 

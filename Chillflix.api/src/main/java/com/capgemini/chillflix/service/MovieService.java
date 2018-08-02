@@ -34,6 +34,7 @@ public class MovieService {
         tobeUpdated.setGenre(update.getGenre());
         tobeUpdated.setDescription(update.getDescription());
         tobeUpdated.setUrl(update.getUrl());
+        tobeUpdated.setImageUrl(update.getImageUrl());
         return this.movieRepository.save(tobeUpdated);
     }
 
