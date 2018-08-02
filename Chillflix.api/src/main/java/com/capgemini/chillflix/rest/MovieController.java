@@ -48,7 +48,7 @@ public class MovieController {
         return this.movieService.updateById(id, update);
     }
 
-    
+
     public MovieService getMovieService(){
         return this.movieService;
     }
