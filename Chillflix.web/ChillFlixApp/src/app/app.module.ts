@@ -12,6 +12,10 @@ import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { MovieListItemComponent } from './components/movie-list-item/movie-list-item.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { GenreFilterComponent } from './components/genre-filter/genre-filter.component';
+import { EnumSelectPipe } from './pipes/enum-select.pipe';
+import { AdminComponent } from './components/admin/admin.component';
+
 
 @NgModule({
   declarations: [
@@ -21,13 +25,20 @@ import { AppRoutingModule } from './/app-routing.module';
     FooterComponent,
     NavComponent,
     MovieListComponent,
-    MovieListItemComponent
+    MovieListItemComponent,
+    GenreFilterComponent,
+    EnumSelectPipe,
+    AdminComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule
+  ],
+  exports: [
+    EnumSelectPipe
   ],
   providers: [MovieService ],
   bootstrap: [AppComponent]
