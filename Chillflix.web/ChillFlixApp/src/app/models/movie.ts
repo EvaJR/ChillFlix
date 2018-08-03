@@ -3,5 +3,7 @@ export class Movie {
     url: string;
     //Genre? enum?
     description: string;
+    imageUrl: string;
+    
 
 }

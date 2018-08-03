@@ -1,12 +1,44 @@
-
 <div class="container">
-  <div *ngFor="let movie of movies">
-    <dl>
+  
+    <!-- <dl>
       <dt>{{movie.name}}</dt>
-      <dd>{{movie.description}} </dd>
+      <dd>{{movie.description}}</dd>
 
-    </dl>
+    </dl> -->
+    <div class="row text-center text-lg-left">
 
-  </div>
+
+
+
+      <div *ngFor="let movie of movies" class="col-lg-3 col-md-4 col-xs-6">
+        <a href="{{movie.url}}" class="d-block mb-4 h-100" target="_blank">
+          <img class="img-fluid img-thumbnail" src="{{movie.imageUrl}}" alt="{{movie.title}}">
+          {{movie.name}}
+
+
+        </a>
+      </div>
+
+      <!-- poging tot titel over plaatje: -->
+
+       <div *ngFor="let movie of movies" class="col-lg-3 col-md-4 col-xs-6 thumbnail text-center">
+          <a href="{{movie.url}}" class="d-block mb-4 h-100" target="_blank">
+            <img class="img-fluid img-thumbnail" src="{{movie.imageUrl}}" alt="{{movie.title}}">
+
+            <div class="caption">
+                <p>{{movie.name}}</p>
+            </div>
+
+            <div class="caption-background"></div>
+          
+            
+  
+  
+          </a>
+        </div> 
+
+    </div>
+  
 
 </div>
+
