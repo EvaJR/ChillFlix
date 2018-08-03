@@ -14,6 +14,8 @@ import { MovieListItemComponent } from './components/movie-list-item/movie-list-
 import { AppRoutingModule } from './/app-routing.module';
 import { GenreFilterComponent } from './components/genre-filter/genre-filter.component';
 import { EnumSelectPipe } from './pipes/enum-select.pipe';
+import { AdminComponent } from './components/admin/admin.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { EnumSelectPipe } from './pipes/enum-select.pipe';
     MovieListComponent,
     MovieListItemComponent,
     GenreFilterComponent,
-    EnumSelectPipe
+    EnumSelectPipe,
+    AdminComponent,
+
   ],
   imports: [
     BrowserModule,
