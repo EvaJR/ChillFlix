@@ -1,0 +1,7 @@
+<p>
+  genre-filter works!
+</p>
+
+<select>
+    <option *ngFor="let genre of genres | enumSelect" [value]="genre.key">{{genre.value}}</option>
+ </select>
