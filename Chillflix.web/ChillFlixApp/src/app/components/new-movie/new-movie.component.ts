@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieListComponent } from '../movie-list/movie-list.component'
 
 @Component({
   selector: 'app-new-movie',
@@ -10,6 +11,10 @@ export class NewMovieComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  filterNewestMovies() {
+
   }
 
 }
