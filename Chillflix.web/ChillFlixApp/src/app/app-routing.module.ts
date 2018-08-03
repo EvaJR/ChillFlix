@@ -1,3 +1,4 @@
+import { AdminComponent } from './components/admin/admin.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
@@ -5,6 +6,7 @@ import {MovieListComponent} from '../app/components/movie-list/movie-list.compon
 
 const routes: Routes = [
   { path: 'movie-list', component: MovieListComponent },
+  { path: 'admin', component: AdminComponent}
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // might be useful later
 ];
 
