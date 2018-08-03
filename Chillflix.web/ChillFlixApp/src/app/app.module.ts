@@ -15,6 +15,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { GenreFilterComponent } from './components/genre-filter/genre-filter.component';
 import { EnumSelectPipe } from './pipes/enum-select.pipe';
 import { AdminComponent } from './components/admin/admin.component';
+import { NewMovieComponent } from './components/new-movie/new-movie.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { AdminComponent } from './components/admin/admin.component';
     GenreFilterComponent,
     EnumSelectPipe,
     AdminComponent,
+    NewMovieComponent,
 
   ],
   imports: [
