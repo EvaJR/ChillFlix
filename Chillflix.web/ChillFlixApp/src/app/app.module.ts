@@ -16,6 +16,8 @@ import { GenreFilterComponent } from './components/genre-filter/genre-filter.com
 import { EnumSelectPipe } from './pipes/enum-select.pipe';
 import { AdminComponent } from './components/admin/admin.component';
 
+import { VideoPlayerComponent } from './components/video-player/video-player.component';
+import { VideoPageComponent } from './components/video-page/video-page.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,9 @@ import { AdminComponent } from './components/admin/admin.component';
     EnumSelectPipe,
     AdminComponent,
 
+    MovieListItemComponent,
+    VideoPlayerComponent,
+    VideoPageComponent
   ],
   imports: [
     BrowserModule,
