@@ -14,19 +14,15 @@ const httpOptions = {
 @Injectable()
 export class MovieService {
 
-  moviesUrl = 'http://localhost:8080/api/movies'; 
+
+  moviesUrl = 'http://localhost:8080/api/movies';
 
 
   constructor(private http: HttpClient) {
- 
+
    }
 
-
-  // public getAll(): Observable<Movie[]>{
-  //   return this.http.get<Movie[]>(this.moviesUrl)
-  // }
   public getAll() {
-    //console.warn();
     return this.http.get(this.moviesUrl);
   }
 
@@ -35,22 +31,16 @@ export class MovieService {
   }
 
   deleteMovie (id: number): Observable<{}> {
-    const url = `${this.moviesUrl}/${id}`; // DELETE api/heroes/42
+    const url = `${this.moviesUrl}/${id}`; 
     return this.http.delete(url)
   }
 
-  // updateMovie (movie: Movie): Observable<Movie> {
-  //   return this.http.put<Movie>(this.moviesUrl, movie)
-  // }
   updateMovie (movie: Movie, id: number): Observable<Movie> {
     httpOptions.headers = httpOptions.headers.set('Authorization', 'my-new-auth-token');
-    const url = `${this.moviesUrl}/${id}`; // DELETE api/heroes/42
+    const url = `${this.moviesUrl}/${id}`;
 
     return this.http.put<Movie>(
       url, movie, httpOptions)
-      // .pipe(
-      //   catchError(this.handleError('updateHero', hero))
-      // );
   }
 
 }
