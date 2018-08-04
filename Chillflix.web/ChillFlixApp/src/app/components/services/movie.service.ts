@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 import { Observable } from '../../../../node_modules/rxjs';
 import { Movie } from '../../models/movie';
 
-
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable()
 export class MovieService {
@@ -16,25 +22,35 @@ export class MovieService {
    }
 
 
-  public getAll(): Observable<Movie[]>{
-    return this.http.get<Movie[]>(this.moviesUrl)
+  // public getAll(): Observable<Movie[]>{
+  //   return this.http.get<Movie[]>(this.moviesUrl)
+  // }
+  public getAll() {
+    //console.warn();
+    return this.http.get(this.moviesUrl);
   }
-
 
   addMovie (movie: Movie): Observable<Movie> {
-    return this.http.post<Movie>(this.moviesUrl, movie)
-
+    return this.http.post<Movie>(this.moviesUrl, movie, httpOptions)
   }
 
-  /** DELETE: delete the hero from the server */
   deleteMovie (id: number): Observable<{}> {
     const url = `${this.moviesUrl}/${id}`; // DELETE api/heroes/42
     return this.http.delete(url)
   }
 
-  /** PUT: update the hero on the server. Returns the updated hero upon success. */
-  updateMovie (movie: Movie): Observable<Movie> {
-    return this.http.put<Movie>(this.moviesUrl, movie)
+  // updateMovie (movie: Movie): Observable<Movie> {
+  //   return this.http.put<Movie>(this.moviesUrl, movie)
+  // }
+  updateMovie (movie: Movie, id: number): Observable<Movie> {
+    httpOptions.headers = httpOptions.headers.set('Authorization', 'my-new-auth-token');
+    const url = `${this.moviesUrl}/${id}`; // DELETE api/heroes/42
 
+    return this.http.put<Movie>(
+      url, movie, httpOptions)
+      // .pipe(
+      //   catchError(this.handleError('updateHero', hero))
+      // );
   }
+
 }

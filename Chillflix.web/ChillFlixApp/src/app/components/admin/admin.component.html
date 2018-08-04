@@ -1,1 +1,70 @@
-<h4>Welcome admin! This commit worked, really:)</h4>
+<h4>Welcome admin</h4><p></p>
+<ul>
+    <B>
+        <td width="40px">Id </td>
+        <td width="250px">Name </td>
+        <td width="250px">Url </td>
+        <td width="250px">Genre</td>
+        <td width="300px">Description</td>
+        <td width="300px">Image Url</td>
+
+      </B>
+      
+
+  <li *ngFor="let movie of movies; let i = index">
+    <tr>
+        <a (click)="edit(movie)">
+          <td width="40px">{{movie.id}} </td>
+
+          <td width="250px"> 
+          <span *ngIf="movie!==editMovie">{{movie.name}}</span>
+          <input *ngIf="movie===editMovie" [(ngModel)]="movie.name" (blur)="update()" (keyup.enter)="update()"></td>
+
+          <td width="250px">
+          <span *ngIf="movie!==editMovie">{{movie.url}}</span>
+          <input *ngIf="movie===editMovie" [(ngModel)]="movie.url" (blur)="update()" (keyup.enter)="update()"> </td>
+
+          <td width="250px">
+          <span *ngIf="movie!==editMovie">{{movie.genre}}</span>
+
+          <select #movieGenre *ngIf="movie===editMovie" [(ngModel)]="movie.genre" (blur)="update()" (keyup.enter)="update()">
+            <option *ngFor="let genre of genres | enumSelect" [value]="genre.key">{{genre.value}}</option>
+          </select></td>
+
+          <td width="300px">
+          <span *ngIf="movie!==editMovie">{{movie.description}}</span>
+          <input *ngIf="movie===editMovie" [(ngModel)]="movie.description" (blur)="update()" (keyup.enter)="update()"></td>
+
+          <td width="300px">
+          <span *ngIf="movie!==editMovie">{{movie.imageUrl}}</span>
+          <input *ngIf="movie===editMovie" [(ngModel)]="movie.imageUrl" (blur)="update()" (keyup.enter)="update()"></td>
+    
+        </a>
+    
+      <!-- <td width="200px"> {{movie.name}} </td> -->
+      <!-- <td width="250px">{{movie.url}} </td> -->
+      <!-- <td width="100px">{{movie.genre}}</td> -->
+      <!-- <td width="300px">{{movie.description}}</td> -->
+      <!-- <td width="300px">{{movie.imageUrl}}</td> -->
+      <td width="5px"><button class="delete" title="delete movie"
+        (click)="delete(movie)">x</button>
+    </td>
+    </tr>
+  </li>
+</ul>
+
+<h3>Add Movies</h3>
+<div>
+  <tr>
+    <label>
+    <td width="250px">Name: <input #movieName /></td>
+    <td width="250px">Url: <input #movieUrl /></td>
+    <td width="250px">Genre: <select #movieGenre><option *ngFor="let genre of genres | enumSelect" [value]="genre.key">{{genre.value}}</option></select></td>
+    <td width="300px">Description: <input #movieDescription /></td>
+    <td width="300px">Image url: <input #movieImgUrl /></td>
+    <td width="5px"><button (click)="add(movieName.value, movieUrl.value, movieGenre.value, movieDescription.value, movieImgUrl.value) ; movieName.value=''; movieUrl.value=''; movieGenre.value=''; movieDescription.value=''; movieImgUrl.value=''">
+          add
+    </button></td>
+    </label>
+  </tr>
+</div>

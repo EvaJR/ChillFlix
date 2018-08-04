@@ -1,7 +1,8 @@
 export class Movie {
+    id: number;
     name: string;
     url: string;
-    //Genre? enum?
+    genre: string;
     description: string;
     imageUrl: string;
     
