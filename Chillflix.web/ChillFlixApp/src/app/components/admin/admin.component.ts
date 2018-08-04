@@ -23,10 +23,6 @@ export class AdminComponent implements OnInit {
     this.getMovies();
   }
 
-  // getMovies(): void {
-  //   this.movieService.getAll()
-  //     .subscribe(movies => this.movies = movies);
-  // }
   getMovies() {
     this.movieService.getAll().subscribe(
       (movies: Array<Movie>) => {
@@ -39,15 +35,6 @@ export class AdminComponent implements OnInit {
     );
   }
 
-  // add(name: string, url: string, genre: string, description: string, imageUrl: string): void {    this.editMovie = undefined;
-  //   name = name.trim();
-  //   if (!name) { return; }
-
-  //   // The server will generate the id for this new hero
-  //   const newMovie: Movie = { name } as Movie;
-  //   this.movieService.addMovie(newMovie)
-  //     .subscribe(movie => this.movies.push(movie));
-  // }
   add(name: string, url: string, genre: string, description: string, imageUrl: string): void {
     this.editMovie = undefined;
     name = name.trim();
@@ -62,17 +49,19 @@ export class AdminComponent implements OnInit {
       .subscribe(movie => {
         this.movies.push(movie);
         console.log('Films now contains', this.movies);
-        //this.getAllFilms();
+        this.movieService.getAll();
       });
   }
 
   delete(movie: Movie): void {
     this.movies = this.movies.filter(h => h !== movie);
     this.movieService.deleteMovie(movie.id).subscribe();
+    this.movieService.getAll();
   }
 
   edit(movie) {
     this.editMovie = movie;
+    this.movieService.getAll();
   }
 
   update() {
@@ -84,6 +73,6 @@ export class AdminComponent implements OnInit {
         });
       this.editMovie = undefined;
     }
+    this.movieService.getAll();
   }
-
 }
