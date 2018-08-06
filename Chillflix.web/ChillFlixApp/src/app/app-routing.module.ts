@@ -7,7 +7,7 @@ import { VideoPageComponent } from './components/video-page/video-page.component
 
 const routes: Routes = [
   { path: 'movie-list', component: MovieListComponent },
-  { path: 'admin', component: AdminComponent}
+  { path: 'admin', component: AdminComponent},
   { path: 'movie/:id', component: VideoPageComponent },
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // might be useful later
 ];

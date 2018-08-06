@@ -40,7 +40,7 @@ public class MovieController {
         this.movieService.deleteById(id);
     }
 
-    @PutMapping(value = "{id}")
+    @PutMapping("{id}")
     @CrossOrigin(origins = "http://localhost:4200")
     public Movie updateById(@PathVariable long id, @RequestBody Movie update){
         return this.movieService.updateById(id, update);
