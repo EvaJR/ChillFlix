@@ -27,7 +27,7 @@
           <td width="250px">
           <span *ngIf="movie!==editMovie">{{movie.genre}}</span>
 
-          <select #movieGenre *ngIf="movie===editMovie" [(ngModel)]="movie.genre" (blur)="update()" (keyup.enter)="update()">
+          <select *ngIf="movie===editMovie" [(ngModel)]="movie.genre" (blur)="update()" (keyup.enter)="update()">
             <option *ngFor="let genre of genres | enumSelect" [value]="genre.key">{{genre.value}}</option>
           </select></td>
 
@@ -49,7 +49,7 @@
 </ul>
 
 <h4>Add Movies</h4><p></p>
-<div>
+<!-- <div>
   <tr>
     <label><b>
     <td width="250px">Name: <input #movieName /></td>
@@ -62,4 +62,43 @@
     </button></td></b>
     </label>
   </tr>
-</div>
+</div> -->
+
+
+
+<div>
+
+  <form [formGroup]='personForm' (ngSubmit)="add(movieName.value, movieUrl.value, movieGenre.value, movieDescription.value, movieImgUrl.value)">
+<!-- <label>Title: </label> -->
+<td width="50px"></td>
+<td width="200px">
+    <span *ngIf="isFieldValid('name')" style="color:red">*Title is mandatory</span>
+    <input #movieName formControlName="name" placeholder="Title" /></td>
+  
+  <td width="200px">
+    <span *ngIf="isFieldValid('url')" style="color:red">*Url is mandatory</span>
+  <input #movieUrl formControlName="url" placeholder="Url"/></td>
+
+  <td width="200px">
+      <span *ngIf="isFieldValid('genre')" style="color:red">*Genre is mandatory</span>
+    <input #movieGenre formControlName="genre" placeholder="Genre"/></td>
+
+  <td width="200px">
+    <span *ngIf="isFieldValid('description')" style="color:red">*Description is mandatory</span>
+    <input #movieDescription formControlName="description" placeholder="Description"/></td>
+
+  <td width="200px">
+      <span *ngIf="isFieldValid('imageUrl')" style="color:red">*ImageUrl is mandatory</span>
+      <input #movieImgUrl formControlName="imageUrl" placeholder="ImageUrl"/></td>
+
+  <td width="50px">
+    <button type="submit" [disabled]="!personForm.valid">
+    submit
+</button></td>
+<td width="30px">{{personForm.valid}}</td>
+
+
+  
+  
+  </form>
+  </div>

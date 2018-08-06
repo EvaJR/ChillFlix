@@ -2,7 +2,8 @@ import { MovieService } from './../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../models/movie';
 import { GenreFilterComponent } from '../genre-filter/genre-filter.component';
-import { Genre} from '../../models/genre'
+import { Genre } from '../../models/genre';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -16,11 +17,47 @@ export class AdminComponent implements OnInit {
 
   movies: Movie[];
   editMovie: Movie;
+  personForm: FormGroup;
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService) {
+    this.personForm = new FormGroup({
+      name: new FormControl('', {
+        validators: [Validators.required],
+        updateOn: 'blur'
+      }
+      ),    // todo add validator
+
+      url: new FormControl('', {
+        validators: [Validators.required], // Validators.email
+        updateOn: 'blur'
+      }),
+
+      genre: new FormControl('', {
+        validators: [Validators.required],
+        updateOn: 'blur'
+      }),
+
+
+      description: new FormControl('', {
+        validators: [Validators.required],
+        updateOn: 'blur'
+      }),
+
+      imageUrl: new FormControl('', {
+        validators: [Validators.required],
+        updateOn: 'blur'
+      }),
+
+    });
+
+  }
 
   ngOnInit() {
     this.getMovies();
+  }
+
+  isFieldValid(field: string) {
+    return !this.personForm.get(field).valid && this.personForm.get(field).touched;
   }
 
   getMovies() {
@@ -30,7 +67,7 @@ export class AdminComponent implements OnInit {
         console.log('Retrieved movies:', this.movies);
       },
       (error) => {
-        console.error('Failed to get movies', error)
+        console.error('Failed to get movies', error);
       }
     );
   }
@@ -51,6 +88,10 @@ export class AdminComponent implements OnInit {
         console.log('Films now contains', this.movies);
         this.movieService.getAll();
       });
+      if (this.personForm.valid) {
+        console.log("Form Submitted!");
+        this.personForm.reset();
+      }
   }
 
   delete(movie: Movie): void {

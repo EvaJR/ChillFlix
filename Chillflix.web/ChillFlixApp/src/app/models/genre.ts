@@ -8,7 +8,7 @@ export enum Genre {
      Horror = 6,
      Thriller = 7,
      Western = 8,
-     Documentary = 9  
+     Documentary = 9
     // Action = 0,
     // Adventure = 1,
     // Comedy = 2,
