@@ -10,7 +10,7 @@ import { MovieService } from '../services/movie.service';
   styleUrls: ['./video-page.component.css']
 })
 export class VideoPageComponent implements OnInit {
-  @Input() movie : Movie;
+  @Input() movie: Movie;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,7 +23,7 @@ export class VideoPageComponent implements OnInit {
 
   getMovie(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.movieService.getMovie(id).subscribe(movie => this.movie = movie);
+    this.movieService.getMovie(id).subscribe(movie => this.movie =  movie);
   }
 
 }

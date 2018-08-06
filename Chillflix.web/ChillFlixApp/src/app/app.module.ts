@@ -18,7 +18,7 @@ import { AdminComponent } from './components/admin/admin.component';
 
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { VideoPageComponent } from './components/video-page/video-page.component';
-import { SortPipe } from './pipes/sort.pipe';
+//import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { SortPipe } from './pipes/sort.pipe';
     MovieListItemComponent,
     VideoPlayerComponent,
     VideoPageComponent,
-    SortPipe
+    //SortPipe
   ],
   imports: [
     BrowserModule,
