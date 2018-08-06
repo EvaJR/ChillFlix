@@ -22,11 +22,16 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Contact</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/admin">Log in</a>
+        <app-login></app-login>
+        <!-- <li class="nav-item">
+          <a class="nav-link" *ngIf='!getLoggedIn()' (click)='login()'>Log in</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf='getLoggedIn()' (click)='logout()'>Log in</a>
+        </li> -->
 
       </ul>
+
     </div>
   </div>
 </nav>
