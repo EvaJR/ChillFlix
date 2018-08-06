@@ -1,8 +1,14 @@
 package com.capgemini.chillflix.model;
 
 public enum Genre {
-    Action,
     Adventure,
-    Sci_fi,
-
+    Action,
+    Comedy,
+    SciFi,
+    Romance,
+    Fantasy,
+    Horror,
+    Thriller,
+    Western,
+    Documentary,
 }

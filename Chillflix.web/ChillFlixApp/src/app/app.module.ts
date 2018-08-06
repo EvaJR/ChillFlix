@@ -17,6 +17,9 @@ import { EnumSelectPipe } from './pipes/enum-select.pipe';
 import { AdminComponent } from './components/admin/admin.component';
 import { NewMovieComponent } from './components/new-movie/new-movie.component';
 
+import { VideoPlayerComponent } from './components/video-player/video-player.component';
+import { VideoPageComponent } from './components/video-page/video-page.component';
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,10 @@ import { NewMovieComponent } from './components/new-movie/new-movie.component';
     AdminComponent,
     NewMovieComponent,
 
+    MovieListItemComponent,
+    VideoPlayerComponent,
+    VideoPageComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,
