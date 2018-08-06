@@ -1,4 +1,4 @@
-{
+{ "defaultSeverity": "warning",
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
