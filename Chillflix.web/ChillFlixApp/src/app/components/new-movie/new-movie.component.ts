@@ -30,11 +30,10 @@ export class NewMovieComponent implements OnInit, OnDestroy {
         this.threeLatestMovies = [this.numberOfMovies, this.numberOfMovies - 1, this.numberOfMovies - 2];
 
 
-        this.moviesByNewestId = this.movies.filter(movie => movie.id === this.numberOfMovies);
-        // this.moviesByNewestId = this.movies.filter({movie => 
-        //   for(let i of this.threeLatestMovies) 
-        //   {movie.id === this.threeLatestMovies[i]}
-        // });
+        // this.moviesByNewestId = this.movies.filter(movie => movie.id === this.numberOfMovies);
+        this.moviesByNewestId = this.movies.filter((movie) => {
+          return this.threeLatestMovies.find(movId => movId === movie.id) !== undefined;
+        });
 
 
         console.log(this.movies);
