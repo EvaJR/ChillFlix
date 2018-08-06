@@ -15,10 +15,11 @@ import { AppRoutingModule } from './/app-routing.module';
 import { GenreFilterComponent } from './components/genre-filter/genre-filter.component';
 import { EnumSelectPipe } from './pipes/enum-select.pipe';
 import { AdminComponent } from './components/admin/admin.component';
+import { NewMovieComponent } from './components/new-movie/new-movie.component';
 
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { VideoPageComponent } from './components/video-page/video-page.component';
-import { SortPipe } from './pipes/sort.pipe';
+// import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -32,11 +33,12 @@ import { SortPipe } from './pipes/sort.pipe';
     GenreFilterComponent,
     EnumSelectPipe,
     AdminComponent,
+    NewMovieComponent,
 
     MovieListItemComponent,
     VideoPlayerComponent,
     VideoPageComponent,
-    SortPipe
+    // SortPipe
   ],
   imports: [
     BrowserModule,
