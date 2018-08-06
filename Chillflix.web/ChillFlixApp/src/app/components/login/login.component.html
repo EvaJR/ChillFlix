@@ -1,0 +1,8 @@
+<p>
+  login works!
+</p>
+
+<button *ngIf='!getLoggedIn()' (click)='login()'>Login</button>
+<button *ngIf='getLoggedIn()' (click)='logout()'>Logout</button>
+
+<span>{{getLoggedIn()}}</span>
