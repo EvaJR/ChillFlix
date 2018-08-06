@@ -81,7 +81,10 @@
 
   <td width="200px">
       <span *ngIf="isFieldValid('genre')" style="color:red">*Genre is mandatory</span>
-    <input #movieGenre formControlName="genre" placeholder="Genre"/></td>
+    <select required #movieGenre formControlName="genre" (blur)="update()" (keyup.enter)="update()">
+        <option value="" disabled selected hidden>Genre</option>
+        <option #movieGenre *ngFor="let genre of genres | enumSelect" [value]="genre.key" >{{genre.value}}</option>
+      </select></td>
 
   <td width="200px">
     <span *ngIf="isFieldValid('description')" style="color:red">*Description is mandatory</span>

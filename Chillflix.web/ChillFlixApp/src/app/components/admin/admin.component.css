@@ -86,3 +86,13 @@
     top: -3px;
     width: 12em;
   }
+
+  select:required:invalid {
+    color: gray;
+  }
+  option[value=""][disabled] {
+    display: none;
+  }
+  option {
+    color: black;
+  }
