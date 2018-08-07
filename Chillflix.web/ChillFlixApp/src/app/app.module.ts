@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -15,10 +16,16 @@ import { AppRoutingModule } from './/app-routing.module';
 import { GenreFilterComponent } from './components/genre-filter/genre-filter.component';
 import { EnumSelectPipe } from './pipes/enum-select.pipe';
 import { AdminComponent } from './components/admin/admin.component';
+import { NewMovieComponent } from './components/new-movie/new-movie.component';
 
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { VideoPageComponent } from './components/video-page/video-page.component';
+<<<<<<< HEAD
 //import { SortPipe } from './pipes/sort.pipe';
+=======
+import { LoginComponent } from './components/login/login.component';
+// import { SortPipe } from './pipes/sort.pipe';
+>>>>>>> 054460a83b7ed3d21c4aaf0266c2436189e1b042
 
 @NgModule({
   declarations: [
@@ -32,13 +39,16 @@ import { VideoPageComponent } from './components/video-page/video-page.component
     GenreFilterComponent,
     EnumSelectPipe,
     AdminComponent,
+    NewMovieComponent,
 
     MovieListItemComponent,
     VideoPlayerComponent,
     VideoPageComponent,
-    //SortPipe
+    LoginComponent,
+    // SortPipe
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     HttpClientModule,
     FormsModule,
