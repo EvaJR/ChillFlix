@@ -26,4 +26,9 @@ export class VideoPageComponent implements OnInit {
     this.movieService.getMovie(id).subscribe(movie => this.movie =  movie);
   }
 
+  ngAfterViewInit () {
+    let player = document.getElementById('embedPlayer');
+    player.setAttribute('src', this.movie.url);
+  }
+
 }
