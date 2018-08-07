@@ -20,12 +20,8 @@ import { NewMovieComponent } from './components/new-movie/new-movie.component';
 
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { VideoPageComponent } from './components/video-page/video-page.component';
-<<<<<<< HEAD
-//import { SortPipe } from './pipes/sort.pipe';
-=======
 import { LoginComponent } from './components/login/login.component';
 // import { SortPipe } from './pipes/sort.pipe';
->>>>>>> 054460a83b7ed3d21c4aaf0266c2436189e1b042
 
 @NgModule({
   declarations: [
