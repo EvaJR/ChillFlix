@@ -5,4 +5,5 @@ export class Movie {
     genre: string;
     description: string;
     imageUrl: string;
+
 }

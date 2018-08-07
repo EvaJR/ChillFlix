@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MovieService } from '../services/movie.service';
 import { Subscription } from '../../../../node_modules/rxjs';
 import { Movie } from '../../models/movie';
@@ -10,16 +10,13 @@ import { Movie } from '../../models/movie';
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.css']
 })
-export class MovieListComponent implements OnInit {
+export class MovieListComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
   movies: Array<Movie>;
   // link: "../../../assets/images/diehard.jpg"
 
- 
-
-
-  constructor( private movieService : MovieService) { }
+  constructor( private movieService: MovieService) { }
 
   ngOnInit() {
     this.subscription = this.movieService.getAll().subscribe(
@@ -33,8 +30,12 @@ export class MovieListComponent implements OnInit {
     );
   }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
       this.subscription.unsubscribe();
     }
+
+    get getMovies() {
+      return this.movies;
+  }
 
 }

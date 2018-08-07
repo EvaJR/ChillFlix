@@ -11,7 +11,7 @@
       </B>
       
 
-  <li *ngFor="let movie of movies|sort; let i = index">
+  <li *ngFor="let movie of movies; let i = index">
     <tr>
         <a (click)="edit(movie)">
           <td width="40px">{{movie.id}} </td>
