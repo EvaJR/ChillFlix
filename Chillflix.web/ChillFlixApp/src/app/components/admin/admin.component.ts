@@ -2,7 +2,7 @@ import { MovieService } from './../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../models/movie';
 import { GenreFilterComponent } from '../genre-filter/genre-filter.component';
-import { Genre} from '../../models/genre'
+import { Genre} from '../../models/genre';
 
 @Component({
   selector: 'app-admin',
@@ -11,7 +11,7 @@ import { Genre} from '../../models/genre'
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  name = 'Angular';
+  name = 'admin';
   genres = Genre;
 
   movies: Movie[];

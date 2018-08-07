@@ -18,12 +18,12 @@ export class VideoPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getMovie();
+    // this.getMovie();
   }
 
-  getMovie(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.movieService.getMovie(id).subscribe(movie => this.movie = movie);
-  }
+  // getMovie(): void {
+  //   const id = +this.route.snapshot.paramMap.get('id');
+  //   this.movieService.getMovie(id).subscribe(movie => this.movie = movie);
+  // }
 
 }
