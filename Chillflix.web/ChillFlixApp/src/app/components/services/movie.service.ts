@@ -19,20 +19,19 @@ export class MovieService {
 
 
   constructor(private http: HttpClient) {
-
    }
 
-  public getAll() {
-    return this.http.get(this.moviesUrl);
+  public getAll(): Observable<Movie[]> {
+    return this.http.get <Movie[]> (this.moviesUrl);
   }
 
   addMovie (movie: Movie): Observable<Movie> {
-    return this.http.post<Movie>(this.moviesUrl, movie, httpOptions)
+    return this.http.post<Movie>(this.moviesUrl, movie, httpOptions);
   }
 
   deleteMovie (id: number): Observable<{}> {
-    const url = `${this.moviesUrl}/${id}`; 
-    return this.http.delete(url)
+    const url = `${this.moviesUrl}/${id}`;
+    return this.http.delete(url);
   }
 
   updateMovie (movie: Movie, id: number): Observable<Movie> {
@@ -40,7 +39,6 @@ export class MovieService {
     const url = `${this.moviesUrl}/${id}`;
 
     return this.http.put<Movie>(
-      url, movie, httpOptions)
+      url, movie, httpOptions);
   }
-
 }

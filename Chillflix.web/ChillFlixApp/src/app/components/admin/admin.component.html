@@ -68,37 +68,37 @@
 
 <div>
 
-  <form [formGroup]='personForm' (ngSubmit)="add(movieName.value, movieUrl.value, movieGenre.value, movieDescription.value, movieImgUrl.value)">
+  <form [formGroup]='movieForm' (ngSubmit)="add()">
 <!-- <label>Title: </label> -->
 <td width="50px"></td>
 <td width="200px">
     <span *ngIf="isFieldValid('name')" style="color:red">*Title is mandatory</span>
-    <input #movieName formControlName="name" placeholder="Title" /></td>
+    <input formControlName="name" placeholder="Title" /></td>
   
   <td width="200px">
     <span *ngIf="isFieldValid('url')" style="color:red">*Url is mandatory</span>
-  <input #movieUrl formControlName="url" placeholder="Url"/></td>
+  <input formControlName="url" placeholder="Url"/></td>
 
   <td width="200px">
       <span *ngIf="isFieldValid('genre')" style="color:red">*Genre is mandatory</span>
-    <select required #movieGenre formControlName="genre" (blur)="update()" (keyup.enter)="update()">
+    <select required formControlName="genre" (blur)="update()" (keyup.enter)="update()">
         <option value="" disabled selected hidden>Genre</option>
-        <option #movieGenre *ngFor="let genre of genres | enumSelect" [value]="genre.key" >{{genre.value}}</option>
+        <option *ngFor="let genre of genres | enumSelect" [value]="genre.key" >{{genre.value}}</option>
       </select></td>
 
   <td width="200px">
     <span *ngIf="isFieldValid('description')" style="color:red">*Description is mandatory</span>
-    <input #movieDescription formControlName="description" placeholder="Description"/></td>
+    <input formControlName="description" placeholder="Description"/></td>
 
   <td width="200px">
       <span *ngIf="isFieldValid('imageUrl')" style="color:red">*ImageUrl is mandatory</span>
-      <input #movieImgUrl formControlName="imageUrl" placeholder="ImageUrl"/></td>
+      <input formControlName="imageUrl" placeholder="ImageUrl"/></td>
 
   <td width="50px">
-    <button type="submit" [disabled]="!personForm.valid">
+    <button type="submit" [disabled]="!movieForm?.valid">
     submit
 </button></td>
-<td width="30px">{{personForm.valid}}</td>
+<td width="30px">{{movieForm?.valid}}</td>
 
 
   

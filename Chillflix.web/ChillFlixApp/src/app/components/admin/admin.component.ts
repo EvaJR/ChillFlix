@@ -1,9 +1,10 @@
 import { MovieService } from './../services/movie.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Movie } from '../../models/movie';
 import { GenreFilterComponent } from '../genre-filter/genre-filter.component';
 import { Genre } from '../../models/genre';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from '../../../../node_modules/rxjs'; 
 
 @Component({
   selector: 'app-admin',
@@ -11,24 +12,25 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   providers: [MovieService],
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit, OnDestroy {
   name = 'Angular';
   genres = Genre;
 
   movies: Movie[];
   editMovie: Movie;
-  personForm: FormGroup;
+  movieForm: FormGroup;
+  subscription: Subscription;
 
   constructor(private movieService: MovieService) {
-    this.personForm = new FormGroup({
+    this.movieForm = new FormGroup({
       name: new FormControl('', {
         validators: [Validators.required],
         updateOn: 'blur'
       }
-      ),    // todo add validator
+      ),
 
       url: new FormControl('', {
-        validators: [Validators.required], // Validators.email
+        validators: [Validators.required],
         updateOn: 'blur'
       }),
 
@@ -57,11 +59,11 @@ export class AdminComponent implements OnInit {
   }
 
   isFieldValid(field: string) {
-    return !this.personForm.get(field).valid && this.personForm.get(field).touched;
+    return !this.movieForm.get(field).valid && this.movieForm.get(field).touched;
   }
 
   getMovies() {
-    this.movieService.getAll().subscribe(
+    this.subscription = this.movieService.getAll().subscribe(
       (movies: Array<Movie>) => {
         this.movies = movies;
         console.log('Retrieved movies:', this.movies);
@@ -72,26 +74,29 @@ export class AdminComponent implements OnInit {
     );
   }
 
-  add(name: string, url: string, genre: string, description: string, imageUrl: string): void {
-    this.editMovie = undefined;
-    name = name.trim();
-    url = url.trim();
-    genre = genre.trim();
-    description = description.trim();
-    imageUrl = imageUrl.trim();
-    if (!name) { return; }
+  add(): void {
+    console.log(this.movieForm.value);
+    let movie: Movie = (this.movieForm.value);
+    console.log("Title: " + movie.name);
+    // this.editMovie = undefined;
+    // name = name.trim();
+    // url = url.trim();
+    // genre = genre.trim();
+    // description = description.trim();
+    // imageUrl = imageUrl.trim();
+    // if (!name) { return; }
 
-    const newMovie: Movie = { name, url, genre, description, imageUrl } as Movie;
-    this.movieService.addMovie(newMovie)
-      .subscribe(movie => {
-        this.movies.push(movie);
-        console.log('Films now contains', this.movies);
-        this.movieService.getAll();
-      });
-      if (this.personForm.valid) {
-        console.log("Form Submitted!");
-        this.personForm.reset();
-      }
+    // const newMovie: Movie = { name, url, genre, description, imageUrl } as Movie;
+    // this.movieService.addMovie(newMovie)
+    //   .subscribe(movie => {
+    //     this.movies.push(movie);
+    //     console.log('Films now contains', this.movies);
+    //     this.movieService.getAll();
+    //   });
+    //   if (this.personForm.valid) {
+    //     console.log("Form Submitted!");
+    //     this.personForm.reset();
+    //   }
   }
 
   delete(movie: Movie): void {
@@ -116,4 +121,9 @@ export class AdminComponent implements OnInit {
     }
     this.movieService.getAll();
   }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
 }
