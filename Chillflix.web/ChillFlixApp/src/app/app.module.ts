@@ -21,6 +21,7 @@ import { NewMovieComponent } from './components/new-movie/new-movie.component';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { VideoPageComponent } from './components/video-page/video-page.component';
 import { LoginComponent } from './components/login/login.component';
+import { AdminGuard } from './guards/admin.guard';
 // import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
@@ -53,7 +54,7 @@ import { LoginComponent } from './components/login/login.component';
   exports: [
     EnumSelectPipe
   ],
-  providers: [MovieService ],
+  providers: [MovieService, AdminGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
