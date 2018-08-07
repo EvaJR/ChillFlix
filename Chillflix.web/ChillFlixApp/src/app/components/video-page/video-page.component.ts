@@ -21,12 +21,6 @@ export class VideoPageComponent implements OnInit {
     // this.getMovie();
   }
 
-<<<<<<< HEAD
-  // getMovie(): void {
-  //   const id = +this.route.snapshot.paramMap.get('id');
-  //   this.movieService.getMovie(id).subscribe(movie => this.movie = movie);
-  // }
-=======
   getMovie(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.movieService.getMovie(id).subscribe(movie => this.movie =  movie);
@@ -36,6 +30,4 @@ export class VideoPageComponent implements OnInit {
     let player = document.getElementById('embedPlayer');
     player.setAttribute('src', this.movie.url);
   }
->>>>>>> develop
-
 }
