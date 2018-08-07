@@ -1,0 +1,16 @@
+
+<!-- <button *ngIf='!getLoggedIn()' (click)='login()'>Login</button>
+<button *ngIf='getLoggedIn()' (click)='logout()'>Logout</button>
+
+<span>{{getLoggedIn()}}</span> -->
+
+<li class="nav-item" *ngIf='!getLoggedIn()' (click)='login()'>
+  <a class="nav-link" href="#">Login</a>
+</li>
+
+<li class="nav-item" *ngIf='getLoggedIn()' (click)='logout()'>
+  <a class="nav-link" href="#">Logout</a>
+</li>
+
+<!-- test modal button for login -->
+

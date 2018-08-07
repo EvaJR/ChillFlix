@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-//import { HttpClientService } from '@angular/core';
+// import { HttpClientService } from '@angular/core';
 import { MovieService } from '../services/movie.service';
 
 @Component({
@@ -16,29 +16,26 @@ export class MainComponent implements OnInit, OnDestroy {
   //   new Movie("../../assets/gifs/diehard.webp")
   //   ];
 
-  //movies: Array <Movie>;
-
-
+  // movies: Array <Movie>;
 
   newMovie: string;
 
-  constructor( private movies : MovieService) { }
+  constructor( private movies: MovieService) { }
 
   ngOnInit(): void {
     this.movies.getAll().subscribe( result => {
-      console.log("Result is", result);
+      console.log('Result is', result);
     });
   }
 
 ngOnDestroy(){
  // this.subscription.unsubscribe();
 }
-  
 
   addMovie() {
     if(this.newMovie !== null && this.newMovie.length > 0) {
-        //this.movies.push(new Movie(this.newMovie));
-        this.newMovie = "";
+        // this.movies.push(new Movie(this.newMovie));
+        this.newMovie = '';
     }
   }
 
@@ -49,7 +46,7 @@ ngOnDestroy(){
 
 class Movie {
   constructor(
-    public link: string) {} 
+    public link: string) {}
   }
 
 
