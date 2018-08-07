@@ -10,7 +10,7 @@ import { MovieService } from '../services/movie.service';
   styleUrls: ['./video-page.component.css']
 })
 export class VideoPageComponent implements OnInit {
-  @Input() movie : Movie;
+  @Input() movie: Movie;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,9 +21,21 @@ export class VideoPageComponent implements OnInit {
     // this.getMovie();
   }
 
+<<<<<<< HEAD
   // getMovie(): void {
   //   const id = +this.route.snapshot.paramMap.get('id');
   //   this.movieService.getMovie(id).subscribe(movie => this.movie = movie);
   // }
+=======
+  getMovie(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.movieService.getMovie(id).subscribe(movie => this.movie =  movie);
+  }
+
+  ngAfterViewInit () {
+    let player = document.getElementById('embedPlayer');
+    player.setAttribute('src', this.movie.url);
+  }
+>>>>>>> develop
 
 }
