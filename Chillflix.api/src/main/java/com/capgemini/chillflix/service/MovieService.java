@@ -23,6 +23,10 @@ public class MovieService {
         return this.movieRepository.findAll();
     }
 
+    public Iterable<Movie> findAllByOrderByIdDesc() {
+        return this.movieRepository.findAllByOrderByIdDesc();
+    }
+
     public Movie findById(long id){
         Movie result = this.movieRepository.findById(id).get();
         return result;

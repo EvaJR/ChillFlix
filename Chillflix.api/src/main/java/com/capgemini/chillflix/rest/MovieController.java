@@ -28,6 +28,12 @@ public class MovieController {
         return this.movieService.list();
     }
 
+    @GetMapping("recent")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Iterable<Movie> findAllByOrderByIdDesc() {
+        return this.movieService.findAllByOrderByIdDesc();
+    }
+
     @GetMapping("{id}")
     @CrossOrigin(origins = "http://localhost:4200")
     public Movie findById(@PathVariable long id){

@@ -29,6 +29,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { CardComponent } from './components/card/card.component';
 import { RatingConfigComponent } from './components/rating-config/rating-config.component';
 import { HomeComponent } from './components/home/home.component';
+import { YoutubePlaylistComponent } from './components/youtube-playlist/youtube-playlist.component';
+import { YoutubePlaylistService } from './services/youtube-playlist.service';
 // import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
@@ -54,6 +56,7 @@ import { HomeComponent } from './components/home/home.component';
     CardComponent,
     RatingConfigComponent,
     HomeComponent,
+    YoutubePlaylistComponent,
     // SortPipe
   ],
   imports: [
@@ -68,7 +71,7 @@ import { HomeComponent } from './components/home/home.component';
   exports: [
     EnumSelectPipe, NewMovieComponent,
   ],
-  providers: [MovieService, AdminGuard ],
+  providers: [MovieService, AdminGuard, YoutubePlaylistService ],
   bootstrap: [AppComponent]
 
 })
