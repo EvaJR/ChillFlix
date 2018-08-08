@@ -22,7 +22,6 @@ import { VideoPlayerComponent } from './components/video-player/video-player.com
 import { VideoPageComponent } from './components/video-page/video-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminGuard } from './guards/admin.guard';
-import { BootstrapTestComponent } from './components/bootstrap-test/bootstrap-test.component';
 // import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
@@ -43,7 +42,6 @@ import { BootstrapTestComponent } from './components/bootstrap-test/bootstrap-te
     VideoPlayerComponent,
     VideoPageComponent,
     LoginComponent,
-    BootstrapTestComponent,
     // SortPipe
   ],
   imports: [
@@ -58,5 +56,6 @@ import { BootstrapTestComponent } from './components/bootstrap-test/bootstrap-te
   ],
   providers: [MovieService, AdminGuard ],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
