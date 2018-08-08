@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -22,6 +24,8 @@ import { VideoPlayerComponent } from './components/video-player/video-player.com
 import { VideoPageComponent } from './components/video-page/video-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminGuard } from './guards/admin.guard';
+import { IAppState } from './redux/app-state.interface';
+import { appStateReducer } from './redux/app-state.reducer';
 // import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
@@ -49,7 +53,9 @@ import { AdminGuard } from './guards/admin.guard';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot<IAppState>(appStateReducer),
+    StoreDevtoolsModule.instrument()
   ],
   exports: [
     EnumSelectPipe

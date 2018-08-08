@@ -8,15 +8,16 @@
     <div class="row text-center text-lg-left">
 
 
+      {{movies$ | async | json}}
 
-
-      <div *ngFor="let movie of movies" class="col-lg-3 col-md-4 col-xs-6">
-        <a href="{{movie.url}}" class="d-block mb-4 h-100" target="_blank">
+      <div *ngFor="let movie of movies$ | async" class="col-lg-3 col-md-4 col-xs-6">
+        {{ movie }}
+        <!-- <a href="{{movie.url}}" class="d-block mb-4 h-100" target="_blank">
           <img class="img-fluid img-thumbnail" src="{{movie.imageUrl}}" alt="{{movie.title}}">
           {{movie.name}}
 
 
-        </a>
+        </a> -->
       </div>
 
       <!-- poging tot titel over plaatje: -->

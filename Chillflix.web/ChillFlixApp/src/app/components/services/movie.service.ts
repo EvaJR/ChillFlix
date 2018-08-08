@@ -23,6 +23,12 @@ export class MovieService {
    }
 
   public getAll() {
+    // let movies: Movie[] = [
+    //   <Movie>{ description: 'description', genre: '1', id: 1, imageUrl: 'test.nl', url: 'url'},
+    //   <Movie>{ description: 'description2 ', genre: '1', id: 4, imageUrl: 'test.nl', url: 'url'},
+    // ]
+
+    // return movies;
     return this.http.get(this.moviesUrl);
   }
 
