@@ -13,7 +13,7 @@ export class NewMovieComponent implements OnInit, OnDestroy {
 
   moviesByNewestId: Movie[];
   numberOfMovies: number;
-  threeLatestMovies: number[];
+  eightLatestMovies: number[];
 
 
 
@@ -27,12 +27,13 @@ export class NewMovieComponent implements OnInit, OnDestroy {
       (data: Array<Movie>) => {
         this.movies = data;
         this.numberOfMovies = this.movies.length;
-        this.threeLatestMovies = [this.numberOfMovies, this.numberOfMovies - 1, this.numberOfMovies - 2];
+        this.eightLatestMovies = [this.numberOfMovies, this.numberOfMovies - 1, this.numberOfMovies - 2, this.numberOfMovies - 3, this.numberOfMovies - 4,
+        this.numberOfMovies - 5, this.numberOfMovies - 6, this.numberOfMovies - 7];
 
 
         // this.moviesByNewestId = this.movies.filter(movie => movie.id === this.numberOfMovies);
         this.moviesByNewestId = this.movies.filter((movie) => {
-          return this.threeLatestMovies.find(movId => movId === movie.id) !== undefined;
+          return this.eightLatestMovies.find(movId => movId === movie.id) !== undefined;
         });
 
 
