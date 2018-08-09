@@ -1,3 +1,41 @@
 img {
     width: 100%;
+    margin: 0px;
 }
+
+#customize-body.bg-dark.container-fluid {
+    width: 100%;
+    padding-right: 0px ;
+    padding-left: 0px ;
+    margin-right: 0px ;
+    margin-left: 0px ;
+}
+
+.home-button {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+}
+
+h1 {
+    font-size: 72px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+/* h1 {
+	background: -webkit-gradient(linear, 100% 0, 0 0, from(red), to(yellow));
+	background: -webkit-linear-gradient(right, red, yellow);
+	background: -moz-linear-gradient(right, red, yellow);
+	background: -o-linear-gradient(right, red, yellow);
+	background: linear-gradient(right, red, yellow);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+} */
+
