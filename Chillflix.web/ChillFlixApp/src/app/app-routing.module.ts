@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { MovieListComponent} from '../app/components/movie-list/movie-list.component'
 import { AdminComponent } from './components/admin/admin.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  
   { path: 'movie-list', component: MovieListComponent },
+  {path: 'home', component: HomeComponent},
 
   { path: 'admin',
     component: AdminComponent,

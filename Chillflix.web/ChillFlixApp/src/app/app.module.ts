@@ -28,6 +28,7 @@ import { BootstrapTestComponent } from './components/bootstrap-test/bootstrap-te
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CardComponent } from './components/card/card.component';
 import { RatingConfigComponent } from './components/rating-config/rating-config.component';
+import { HomeComponent } from './components/home/home.component';
 // import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
@@ -52,6 +53,7 @@ import { RatingConfigComponent } from './components/rating-config/rating-config.
     CarouselComponent,
     CardComponent,
     RatingConfigComponent,
+    HomeComponent,
     // SortPipe
   ],
   imports: [
