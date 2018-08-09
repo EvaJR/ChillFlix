@@ -27,6 +27,7 @@ import { AdminGuard } from './guards/admin.guard';
 import { BootstrapTestComponent } from './components/bootstrap-test/bootstrap-test.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CardComponent } from './components/card/card.component';
+import { RatingConfigComponent } from './components/rating-config/rating-config.component';
 // import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
@@ -50,6 +51,7 @@ import { CardComponent } from './components/card/card.component';
     LoginComponent,
     CarouselComponent,
     CardComponent,
+    RatingConfigComponent,
     // SortPipe
   ],
   imports: [
@@ -62,7 +64,7 @@ import { CardComponent } from './components/card/card.component';
     MatCardModule
   ],
   exports: [
-    EnumSelectPipe, NewMovieComponent
+    EnumSelectPipe, NewMovieComponent,
   ],
   providers: [MovieService, AdminGuard ],
   bootstrap: [AppComponent]
