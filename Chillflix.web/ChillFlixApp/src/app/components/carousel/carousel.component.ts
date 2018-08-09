@@ -22,7 +22,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
 
   constructor(private movieService: MovieService, config: NgbCarouselConfig, private _http: HttpClient) {
     // customize default values of carousels used by this component tree
-    config.interval = 10000;
+    config.interval = 5000;
     config.wrap = false;
     config.keyboard = false;
     config.pauseOnHover = false;
@@ -33,6 +33,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
       (data: Array<Movie>) => {
         this.movies = data;
         this.numberOfMovies = this.movies.length;
+        // tslint:disable-next-line:max-line-length
         this.eightLatestMovies = [this.numberOfMovies, this.numberOfMovies - 1, this.numberOfMovies - 2, this.numberOfMovies - 3, this.numberOfMovies - 4,
         this.numberOfMovies - 5, this.numberOfMovies - 6, this.numberOfMovies - 7];
 

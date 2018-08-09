@@ -1,0 +1,45 @@
+.btn-movie { 
+    color: #ffffff; 
+    background-color: #353238; 
+    border-color: #000000; 
+  } 
+   
+  .btn-movie:hover, 
+  .btn-movie:focus, 
+  .btn-movie:active, 
+  .btn-movie.active, 
+  .open .dropdown-toggle.btn-movie { 
+    color: #ffffff; 
+    background-color: #6F6C73; 
+    border-color: #000000; 
+  } 
+   
+  .btn-movie:active, 
+  .btn-movie.active, 
+  .open .dropdown-toggle.btn-movie { 
+    background-image: none; 
+  } 
+   
+  .btn-movie.disabled, 
+  .btn-movie[disabled], 
+  fieldset[disabled] .btn-movie, 
+  .btn-movie.disabled:hover, 
+  .btn-movie[disabled]:hover, 
+  fieldset[disabled] .btn-movie:hover, 
+  .btn-movie.disabled:focus, 
+  .btn-movie[disabled]:focus, 
+  fieldset[disabled] .btn-movie:focus, 
+  .btn-movie.disabled:active, 
+  .btn-movie[disabled]:active, 
+  fieldset[disabled] .btn-movie:active, 
+  .btn-movie.disabled.active, 
+  .btn-movie[disabled].active, 
+  fieldset[disabled] .btn-movie.active { 
+    background-color: #353238; 
+    border-color: #000000; 
+  } 
+   
+  .btn-movie .badge { 
+    color: #353238; 
+    background-color: #ffffff; 
+  }
