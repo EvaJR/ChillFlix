@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {MatCardModule} from '@angular/material/card';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -24,6 +26,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AdminGuard } from './guards/admin.guard';
 import { BootstrapTestComponent } from './components/bootstrap-test/bootstrap-test.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { CardComponent } from './components/card/card.component';
 // import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
@@ -46,6 +49,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     VideoPageComponent,
     LoginComponent,
     CarouselComponent,
+    CardComponent,
     // SortPipe
   ],
   imports: [
@@ -53,7 +57,9 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   exports: [
     EnumSelectPipe, NewMovieComponent

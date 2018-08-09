@@ -28,4 +28,6 @@
     font-family: 'Permanent Marker';
 
   }
+
+  @import "~@angular/material/prebuilt-themes/indigo-pink.css";
   
