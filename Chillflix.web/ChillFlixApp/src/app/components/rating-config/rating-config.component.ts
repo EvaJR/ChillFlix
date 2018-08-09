@@ -12,6 +12,6 @@ export class RatingConfigComponent {
     config.max = 5;
     config.readonly = false;
   }
-  currentRate = 2;
+  currentRate = 3;
 }
 
