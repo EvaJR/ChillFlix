@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MovieService } from '../services/movie.service';
 import { Subscription, Observable } from '../../../../node_modules/rxjs';
+import { filter} from 'rxjs/operators';
 import { Movie } from '../../models/movie';
 import { Store, select } from '@ngrx/store';
 import { IAppState } from '../../redux/app-state.interface';
@@ -22,15 +23,12 @@ export class MovieListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // lezen het stukje state uit de store met de lijst met movies, zodat we die kunnen weergeven.
-    this.movies$ = this.store.pipe(select(state => state.movielist))
+    this.movies$ = this.store.pipe(
+        select(state => state.movielist.movies)
+        // filter(movies =>
+      )
 
-    let movies: Movie[] = [
-      <Movie>{ description: 'description', genre: '1', id: 1, imageUrl: 'test.nl', url: 'url'},
-      <Movie>{ description: 'description2 ', genre: '1', id: 4, imageUrl: 'test.nl', url: 'url'},
-    ]
-
-    this.store.dispatch(new movielistActions.AddMovies(movies));
-
+    this.store.dispatch(new movielistActions.LoadMovies);
 
     // this.subscription = this.movieService.getAll().subscribe(
     //   // action dispatchen om de movies die we uit de service krijgen, toe te voegen aan de state.

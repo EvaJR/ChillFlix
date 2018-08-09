@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AdminGuard } from './guards/admin.guard';
 import { IAppState } from './redux/app-state.interface';
 import { appStateReducer } from './redux/app-state.reducer';
+import { MovielistEffects } from './redux/movielist/movielist.effects';
 // import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
@@ -55,6 +57,7 @@ import { appStateReducer } from './redux/app-state.reducer';
     FormsModule,
     AppRoutingModule,
     StoreModule.forRoot<IAppState>(appStateReducer),
+    EffectsModule.forRoot([ MovielistEffects ]),
     StoreDevtoolsModule.instrument()
   ],
   exports: [
