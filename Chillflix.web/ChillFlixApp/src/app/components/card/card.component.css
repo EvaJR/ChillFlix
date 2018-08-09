@@ -1,3 +1,15 @@
+.mat-card {
+    background-color: #777b82;
+    
+
+}
+
+.mat-card:hover {
+    background-color: #e5e7eb;
+
+}
+
+
 .example-card {
     max-width: 400px;
   }
@@ -23,7 +35,7 @@
 
 .movie-card-button {
     position: absolute;
-    top: 70%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
 
