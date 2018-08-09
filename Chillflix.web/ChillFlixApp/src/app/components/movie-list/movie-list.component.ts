@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { MovieService } from '../services/movie.service';
 import { Subscription } from '../../../../node_modules/rxjs';
 import { Movie } from '../../models/movie';
@@ -13,21 +13,21 @@ import { Movie } from '../../models/movie';
 export class MovieListComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
-  movies: Array<Movie>;
+  @Input() movies: Array<Movie>;
   // link: "../../../assets/images/diehard.jpg"
 
   constructor( private movieService: MovieService) { }
 
   ngOnInit() {
-    this.subscription = this.movieService.getAll().subscribe(
-      (data: Array<Movie>) => {
-        this.movies = data;
-        console.log(this.movies);
-      },
-      (error) => {
-        console.error('Failed to get movies', error);
-      }
-    );
+    // this.subscription = this.movieService.getAll().subscribe(
+    //   (data: Array<Movie>) => {
+    //     this.movies = data;
+    //     console.log(this.movies);
+    //   },
+    //   (error) => {
+    //     console.error('Failed to get movies', error);
+    //   }
+    // );
   }
 
     ngOnDestroy(): void {

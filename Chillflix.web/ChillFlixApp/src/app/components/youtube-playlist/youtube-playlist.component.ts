@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { YoutubePlaylistService } from '../../services/youtube-playlist.service';
 import { Subscription } from '../../../../node_modules/rxjs';
+import { Movie } from '../../models/movie';
 
 @Component({
   selector: 'app-youtube-playlist',
@@ -10,7 +11,7 @@ import { Subscription } from '../../../../node_modules/rxjs';
 export class YoutubePlaylistComponent implements OnInit {
 
   subscription:  Subscription;
-  videos: Object[]; //TODO fix this wtf
+  movies: Movie[];
 
 
   constructor(
@@ -19,9 +20,12 @@ export class YoutubePlaylistComponent implements OnInit {
 
   ngOnInit() {
     this.subscription  =  this.youtubePlaylistService.getAll().subscribe(
-      videos  =>  {
-        console.log('youtube content!', videos);
+      results  =>  {
+        console.log('youtube content!', results);
+        this.movies = this.youtubePlaylistService.getMovieData(results);
         // this.thumbnails = thumbnails;
+
+
       },
       (error)  =>  {
         console.error('Failed ',  error);

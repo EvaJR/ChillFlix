@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '../../../node_modules/@angular/common/http';
 import { Observable } from '../../../node_modules/rxjs';
+import { Movie } from '../models/movie';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json',
+    'Content-Type': 'application/json',
     'Authorization': 'my-auth-token'
   })
 };
@@ -14,7 +15,7 @@ const httpOptions = {
 })
 export class YoutubePlaylistService {
 
-  playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems/?part=snippet&maxResults=50';
+  playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems/?part=snippet&maxResults=5';
   key = '&key=AIzaSyB63hhRSMPLS5NnL1ImxMz3vkf1pGMEStI';
   playlistId = '&playlistId=PLL1Mn_oZ39gzPGLzzfp04uLoOBQ9IBFmt';
 
@@ -24,9 +25,53 @@ export class YoutubePlaylistService {
     private http: HttpClient
   ) { }
 
+  // public getAll() {
+  //   return this.http.get(this.api);
+  // }
+
   public getAll() {
-    return this.http.get(this.api);
+    return this.http.get<any>(this.api);
   }
+
+  public getMovieData(result): Movie[] {
+    let movies: Movie[] = [];
+    result.items.forEach(item => {
+      let movie = new Movie();
+      movie.name = item.snippet.title;
+      movie.imageUrl = item.snippet.thumbnails.medium.url;
+      // movie.name = item.snippet.title;
+      // movie.name = item.snippet.title;
+      movies.push(movie);
+    });
+    return movies;
+  }
+
+
+
+  // for each (item in result.items) {
+
+  // }
+
+
+
+
+
+  // public getAll(): Movie[] {
+  //   // make movie param.
+  //   let movies: Movie[];
+
+  //   let rawJson: Observable<any[]> = this.http.get<any[]>(this.api);
+
+  //   rawJson.subscribe(results => {
+  //     results.forEach(result => {
+  //       let movie = new Movie();
+  //       movie.name = result.items.snippet.title;
+  //       movies.push(movie);
+  //     });
+  //   });
+
+  //   return movies;
+  // }
 
   // getMovie (id: number): Observable<Movie>{
   //   return this.http.get<Movie>(`${this.moviesUrl}/${id}`);
