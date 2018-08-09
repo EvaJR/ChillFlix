@@ -1,16 +1,25 @@
 import { MovielistActionsUnion, MovielistActionTypes } from './movielist.actions'
-import { Movie } from '../../models/movie';
+import { IMovielist, LoadState } from './movielist.interface';
 
 // default state toevoegen
 
-export const movieListReducer = (state: Movie[], action: MovielistActionsUnion): Movie[] => {
+export const movieListReducer = (state: IMovielist, action: MovielistActionsUnion): IMovielist => {
   switch (action.type) {
-    case MovielistActionTypes.ADD_MOVIES:
+    case MovielistActionTypes.LOAD_MOVIES_COMPLETE:
+        return {
+            movies: action.movies,
+            loadState: LoadState.Ready
+        }
+    case MovielistActionTypes.LOAD_MOVIES_ERROR:    
         return {
             ...state,
-            ...action.movies
-        } 
-        // return action.movies;        
+            loadState: LoadState.Error            
+        }
+    case MovielistActionTypes.LOAD_MOVIES:
+        return {
+            ...state,
+            loadState: LoadState.Loading
+        }
     default:
       return state;
   }

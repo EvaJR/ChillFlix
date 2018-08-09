@@ -1,6 +1,6 @@
-import { Movie } from "../models/movie";
+import { IMovielist } from './movielist/movielist.interface';
 
 export interface IAppState {
-    movielist: Movie[],
+    movielist: IMovielist
     // loggedin: boolean
 }
