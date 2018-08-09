@@ -13,11 +13,23 @@
       <div *ngFor="let movie of movies" class="col-lg-3 col-md-4 col-xs-6">
         <a href="{{movie.url}}" class="d-block mb-4 h-100" target="_blank">
           <img class="img-fluid img-thumbnail" src="{{movie.imageUrl}}" alt="{{movie.title}}">
-          {{movie.name}}
+          <div class="carousel-caption">
+              <button type="button" class="btn btn-dark">{{movie.name}}</button>
+              </div>
 
 
         </a>
       </div>
+
+
+      <!-- <ng-template *ngFor="let newMovie of moviesByNewestId" ngbSlide>
+          <img class = "col-sm"src="{{newMovie.imageUrl}}" alt="Random first slide">
+          <div class="carousel-caption">
+            <button type="button" class="btn btn-dark">{{newMovie.name}}</button>
+            <!-- <h3> {{newMovie.name}}</h3> -->
+            <!-- <p>The latest movies</p> -->
+          <!-- </div>
+        </ng-template> --> 
 
       <!-- poging tot titel over plaatje: -->
 
