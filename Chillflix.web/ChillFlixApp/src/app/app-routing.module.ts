@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CardComponent } from './components/card/card.component';
 import { YoutubePlaylistComponent } from './components/youtube-playlist/youtube-playlist.component';
+import { YoutubePlayerComponent } from './components/youtube-player/youtube-player.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'featured', component: CarouselComponent },
   { path: 'movie-cards', component: CardComponent },
   { path: 'youtube-playlist', component: YoutubePlaylistComponent },
+  { path: 'youtube-player', component: YoutubePlayerComponent },
 
 
   { path: 'admin',

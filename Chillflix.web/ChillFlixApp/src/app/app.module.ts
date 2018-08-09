@@ -20,7 +20,6 @@ import { EnumSelectPipe } from './pipes/enum-select.pipe';
 import { AdminComponent } from './components/admin/admin.component';
 import { NewMovieComponent } from './components/new-movie/new-movie.component';
 
-import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { VideoPageComponent } from './components/video-page/video-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminGuard } from './guards/admin.guard';
@@ -31,6 +30,7 @@ import { RatingConfigComponent } from './components/rating-config/rating-config.
 import { HomeComponent } from './components/home/home.component';
 import { YoutubePlaylistComponent } from './components/youtube-playlist/youtube-playlist.component';
 import { YoutubePlaylistService } from './services/youtube-playlist.service';
+import { YoutubePlayerComponent } from './components/youtube-player/youtube-player.component';
 // import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
@@ -49,7 +49,6 @@ import { YoutubePlaylistService } from './services/youtube-playlist.service';
     BootstrapTestComponent,
 
     MovieListItemComponent,
-    VideoPlayerComponent,
     VideoPageComponent,
     LoginComponent,
     CarouselComponent,
@@ -57,6 +56,7 @@ import { YoutubePlaylistService } from './services/youtube-playlist.service';
     RatingConfigComponent,
     HomeComponent,
     YoutubePlaylistComponent,
+    YoutubePlayerComponent,
     // SortPipe
   ],
   imports: [

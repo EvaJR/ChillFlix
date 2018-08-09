@@ -15,11 +15,12 @@ const httpOptions = {
 })
 export class YoutubePlaylistService {
 
-  playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems/?part=snippet&maxResults=5';
+  playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems/?part=snippet';
   key = '&key=AIzaSyB63hhRSMPLS5NnL1ImxMz3vkf1pGMEStI';
   playlistId = '&playlistId=PLL1Mn_oZ39gzPGLzzfp04uLoOBQ9IBFmt';
+  limit = '&maxResults=12';
 
-  api = this.playlistUrl + this.playlistId + this.key;
+  api = this.playlistUrl + this.playlistId + this.key + this.limit;
 
   constructor(
     private http: HttpClient
@@ -39,7 +40,10 @@ export class YoutubePlaylistService {
       let movie = new Movie();
       movie.name = item.snippet.title;
       movie.imageUrl = item.snippet.thumbnails.medium.url;
-      // movie.name = item.snippet.title;
+      movie.url = 'https://www.youtube.com/embed/' + item.snippet.resourceId.videoId;
+      movie.description =  item.snippet.description;
+      
+      
       // movie.name = item.snippet.title;
       movies.push(movie);
     });
