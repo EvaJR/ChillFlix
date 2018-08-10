@@ -62,11 +62,16 @@ export class YoutubePlaylistService {
   }
 
   public fillMovieFromJson(result) {
-    let movie = new Movie();
+    let movie  = new Movie();
     movie.name = result.items[0].snippet.title;
     movie.imageUrl = result.items[0].snippet.thumbnails.medium.url;
-    movie.url = 'https://www.youtube.com/embed/' + result.items[0].snippet.resourceId.videoId;
+    movie.url = 'https://www.youtube.com/embed/' + result.items[0].id;
     movie.description = result.items[0].snippet.description;
+
+    console.log("OBJ: ");
+    console.log(movie);
+    console.log("descriptionfrom json" +result.items[0].id);
+    console.log("description from local Obj" +movie.url);
 
     return movie;
   }

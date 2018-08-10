@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'movie-cards', component: CardComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'youtube-playlist', component: YoutubePlaylistComponent },
-  { path: 'youtube-player', component: YoutubePlayerComponent },
+  { path: 'youtube-player/:id', component: YoutubePlayerComponent },
 
 
   { path: 'admin',
