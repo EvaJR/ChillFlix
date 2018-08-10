@@ -10,9 +10,8 @@ import { Movie } from '../../models/movie';
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.css']
 })
-export class MovieListComponent implements OnInit, OnDestroy {
+export class MovieListComponent implements OnInit{
 
-  subscription: Subscription;
   @Input() movies: Array<Movie>;
   // link: "../../../assets/images/diehard.jpg"
 
@@ -29,10 +28,6 @@ export class MovieListComponent implements OnInit, OnDestroy {
     //   }
     // );
   }
-
-    ngOnDestroy(): void {
-      this.subscription.unsubscribe();
-    }
 
     get getMovies() {
       return this.movies;

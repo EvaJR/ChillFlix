@@ -1,11 +1,11 @@
-<div class="container">
-  
-    <!-- <dl>
+<!-- <div class="container"> -->
+
+<!-- <dl>
       <dt>{{movie.name}}</dt>
       <dd>{{movie.description}}</dd>
 
     </dl> -->
-    <div class="row text-center text-lg-left">
+<!-- <div class="row text-center text-lg-left">
 
 
 
@@ -19,21 +19,21 @@
 
 
         </a>
-      </div>
+      </div> -->
 
 
-      <!-- <ng-template *ngFor="let newMovie of moviesByNewestId" ngbSlide>
+<!-- <ng-template *ngFor="let newMovie of moviesByNewestId" ngbSlide>
           <img class = "col-sm"src="{{newMovie.imageUrl}}" alt="Random first slide">
           <div class="carousel-caption">
             <button type="button" class="btn btn-dark">{{newMovie.name}}</button>
             <h3> {{newMovie.name}}</h3>
             <p>The latest movies</p>
            </div>
-        </ng-template> --> 
+        </ng-template> -->
 
-      <!-- poging tot titel over plaatje: -->
+<!-- poging tot titel over plaatje: -->
 
-       <!-- <div *ngFor="let movie of movies" class="col-lg-3 col-md-4 col-xs-6 thumbnail text-center">
+<!-- <div *ngFor="let movie of movies" class="col-lg-3 col-md-4 col-xs-6 thumbnail text-center">
           <a href="{{movie.url}}" class="d-block mb-4 h-100" target="_blank">
             <img class="img-fluid img-thumbnail" src="{{movie.imageUrl}}" alt="{{movie.title}}">
 
@@ -49,8 +49,41 @@
           </a>
         </div>  -->
 
-    </div>
+<!-- </div>
   
 
-</div>
+</div> -->
 
+<div class="container py-5">
+  <!-- <h3 style="color:#777b82" class="text-center">All movies</h3> -->
+  <div class="row">
+
+    <div *ngFor="let movie of movies" style="height:450px;" class="col-3 ">
+      <a routerLink="/youtube-player/{{movie.id}}">
+        <mat-card class="example-card" style="min-height: 400px">
+          <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <mat-card-title>{{movie.name}}</mat-card-title>
+            <!-- <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle> -->
+          </mat-card-header>
+
+
+          <img mat-card-image src="{{movie.imageUrl}}" alt="{{movie.name}}">
+
+          <!-- <button type="button" class="movie-card-button btn btn-dark">{{movie.name}}</button> -->
+
+
+          <mat-card-content>
+            <!-- <p>
+        {{movie.name}}
+      </p> -->
+          </mat-card-content>
+          <mat-card-actions>
+            <app-rating-config></app-rating-config>
+          </mat-card-actions>
+        </mat-card>
+      </a>
+    </div>
+  </div>
+
+</div>

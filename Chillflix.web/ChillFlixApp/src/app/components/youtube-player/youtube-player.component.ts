@@ -22,10 +22,15 @@ export class YoutubePlayerComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.subscription  =  this.youtubePlaylistService.getMovieById("lPVBrRd9wCo").subscribe(
-      result  =>  {
-        console.log('youtube video data', result);
-        this.movie = this.youtubePlaylistService.fillMovieFromJson(result);
+    const id = this.route.snapshot.paramMap.get('id');
+    this.subscription  =  this.youtubePlaylistService.getMovieById(id).subscribe(
+      results  =>  {
+        console.log('youtube content!', results);
+        this.movie = this.youtubePlaylistService.fillMovieFromJson(results);
+
+        
+        let player = document.getElementById('embedPlayer');
+        player.setAttribute('src', this.movie.url);
 
       },
       (error)  =>  {
@@ -33,8 +38,13 @@ export class YoutubePlayerComponent implements OnInit, OnDestroy {
       });
   }
 
+//  getMovie(): void {
+//    const id = 'lPVBrRd9wCo';
+//    let result = this.youtubePlaylistService.getMovieById(id).subscribe(movie => this.movie =  movie);
+//  }
+
   ngOnDestroy() {
-    this.subscription.unsubscribe;
+    this.subscription.unsubscribe();
   }
 
 //   get getMovie() {

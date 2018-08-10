@@ -1,29 +1,30 @@
-
-<div class = "py-5 container-fluid">
-    
+<div class="py-5 container-fluid">
 
 
-<div class="row">
-<div class="col-lg-2"></div>
-<div class="col-lg-8">
-    <h3 style = "color:#777b82" class="text-center">Featured movies</h3>
-<ngb-carousel *ngIf="images">
-    <ng-template *ngFor="let newMovie of moviesByNewestId" ngbSlide>
-      <img class = "col-sm"src="{{newMovie.imageUrl}}" alt="Random first slide">
-      <div class="carousel-caption">
-        <button type="button" class="btn btn-dark">{{newMovie.name}}</button>
-        <!-- <h3> {{newMovie.name}}</h3> -->
-        <!-- <p>The latest movies</p> -->
-      </div>
-    </ng-template>
 
-  </ngb-carousel>
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+      <!-- <h3 style = "color:#777b82" class="text-center">Featured movies</h3> -->
+      <ngb-carousel>
+        <ng-template *ngFor="let newMovie of movies" ngbSlide>
+          <a routerLink="/youtube-player/{{newMovie.id}}">
+            <img class="col-lg-12" src="{{newMovie.imageUrl}}" alt="Random first slide">
+            <div class="carousel-caption">
+              <button type="button" class="btn btn-dark">{{newMovie.name}}</button>
+              <!-- <h3> {{newMovie.name}}</h3> -->
+              <!-- <p>The latest movies</p> -->
+            </div>
+          </a>
+        </ng-template>
+
+      </ngb-carousel>
+    </div>
+
+    <div class="col-lg-2"></div>
+  </div>
 </div>
-
-  <div class="col-lg-2"></div>
-</div>
-</div>
-  <!-- <ngb-carousel>
+<!-- <ngb-carousel>
       <template *ngFor="let imgIdx of [1, 2, 3]" ngbSlide>
         <img src="http://lorempixel.com/900/500?r={{imgIdx}}" alt="Random slide no {{imgIdx}}">
         <div class="carousel-caption">
@@ -33,7 +34,7 @@
       </template>
     </ngb-carousel> -->
 
-  <!-- <div class="row text-center text-lg-left">
+<!-- <div class="row text-center text-lg-left">
       <div *ngFor="let newMovie of moviesByNewestId" class="col-lg-3 col-md-4 col-xs-6">
         <a routerLink="/movie/{{newMovie.id}}" class="d-block mb-4 h-100">
           <img class="img-fluid img-thumbnail" src="{{newMovie.imageUrl}}" alt="{{newMovie.title}}"> {{newMovie.name}}

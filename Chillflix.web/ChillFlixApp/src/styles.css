@@ -6,6 +6,7 @@
 /* <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 /*!
  * Start Bootstrap - Thumbnail Gallery (https://startbootstrap.com/template-overviews/thumbnail-gallery)
  * Copyright 2013-2017 Start Bootstrap
@@ -24,14 +25,58 @@
     }
   } */
 
+  /* colour scheme
+
+
+  Black: #020202
+  Anthracite: #2A2E31
+  Blue: #1F9FE4
+  Turquoise (light blue): #67C4E9
+
+
+  */
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+  #chill-blue {color: #67C4E9}
+  #chill-blue-background {background-color: #67C4E9}
+  #blue {color: #1F9FE4}
+  #blue-background {background-color: #1F9FE4}
+  #grey {color: rgb(24, 27, 29)}
+  #grey-background {background-color: rgb(24, 27, 29)}
+  #light-grey {color: rgb(194, 194, 194)}
+  #light-grey-background {background-color: rgb(194, 194, 194)}
+  #black {color: #020202}
+  #black-background {background-color: #020202}
+  #white {color: #FFFFFF}
+  #white-background {background-color: #FFFFFF}
+
+
+
+
+
   * {
     font-family: 'Permanent Marker';
   }
+<<<<<<< HEAD
   
+=======
+
+ 
+
+>>>>>>> 8f3b54387db3a3676c6d97736421c0be59dfe933
   .container-fluid {
     width: 100%;
     padding-right: 0px;
     padding-left: 0px;
     margin-right: auto;
     margin-left: auto;
+<<<<<<< HEAD
   }
+=======
+}
+  
+>>>>>>> 8f3b54387db3a3676c6d97736421c0be59dfe933
