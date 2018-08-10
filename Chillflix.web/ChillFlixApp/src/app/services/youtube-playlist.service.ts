@@ -41,6 +41,7 @@ export class YoutubePlaylistService {
     let movies: Movie[] = [];
     result.items.forEach(item => {
       let movie = new Movie();
+      movie.id = item.snippet.resourceId.videoId;
       movie.name = item.snippet.title;
       movie.imageUrl = item.snippet.thumbnails.medium.url;
       movie.url = 'https://www.youtube.com/embed/' + item.snippet.resourceId.videoId;

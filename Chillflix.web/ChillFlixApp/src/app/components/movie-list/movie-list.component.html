@@ -59,28 +59,30 @@
   <div class="row">
 
     <div *ngFor="let movie of movies" style="height:450px;" class="col-3 ">
-      <mat-card class="example-card" style = "min-height: 400px">
-        <mat-card-header>
-          <!-- <div mat-card-avatar class="example-header-image"></div> -->
-          <mat-card-title>{{movie.name}}</mat-card-title>
-          <!-- <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle> -->
-        </mat-card-header>
+      <a routerLink="/youtube-player/{{movie.id}}">
+        <mat-card class="example-card" style="min-height: 400px">
+          <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <mat-card-title>{{movie.name}}</mat-card-title>
+            <!-- <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle> -->
+          </mat-card-header>
 
 
-        <img mat-card-image src="{{movie.imageUrl}}" alt="{{movie.name}}">
+          <img mat-card-image src="{{movie.imageUrl}}" alt="{{movie.name}}">
 
-        <!-- <button type="button" class="movie-card-button btn btn-dark">{{movie.name}}</button> -->
+          <!-- <button type="button" class="movie-card-button btn btn-dark">{{movie.name}}</button> -->
 
 
-        <mat-card-content>
-          <!-- <p>
+          <mat-card-content>
+            <!-- <p>
         {{movie.name}}
       </p> -->
-        </mat-card-content>
-        <mat-card-actions>
-          <app-rating-config></app-rating-config>
-        </mat-card-actions>
-      </mat-card>
+          </mat-card-content>
+          <mat-card-actions>
+            <app-rating-config></app-rating-config>
+          </mat-card-actions>
+        </mat-card>
+      </a>
     </div>
   </div>
 
