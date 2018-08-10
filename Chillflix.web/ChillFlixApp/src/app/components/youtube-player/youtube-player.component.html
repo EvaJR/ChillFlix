@@ -1,3 +1,8 @@
+<div class="container fluid">
 
-  <!-- <app-video-player [movie] = "movie"></app-video-player> -->
+  <h1 class="col-12">{{movie?.name}}</h1>
 
+  <iframe id="embedPlayer" class="col-12" style="height: 720px;" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <div class="col-12">{{movie?.description}}</div>
+
+</div>

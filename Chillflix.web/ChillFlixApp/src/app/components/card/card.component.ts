@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../models/movie';
 import { Subscription } from '../../../../node_modules/rxjs';
-import { MovieService } from '../services/movie.service';
+import { MovieService } from '../../services/movie.service';
 import { HttpClient } from '../../../../node_modules/@angular/common/http';
 import {RatingConfigComponent} from '../../components/rating-config/rating-config.component'
 

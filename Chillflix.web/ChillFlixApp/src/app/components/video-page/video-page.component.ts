@@ -18,7 +18,7 @@ export class VideoPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.getMovie();
+     this.getMovie();
   }
 
   getMovie(): void {
