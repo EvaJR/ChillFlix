@@ -30,12 +30,13 @@ export class YoutubePlaylistService {
     const playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems/?part=snippet';
     const key = '&key=AIzaSyB63hhRSMPLS5NnL1ImxMz3vkf1pGMEStI';
     const playlistId = '&playlistId=PL9TFlJz2Em7HYVYMG5QCz56BoGzt4qJTB';
-    const limit = '&maxResults=12';
+    let limit = '&maxResults=40';
 
     let api = playlistUrl + playlistId + key + limit;
 
     return this.http.get<any>(api);
   }
+
 
   public getMovieData(result): Movie[] {
     let movies: Movie[] = [];
@@ -44,6 +45,32 @@ export class YoutubePlaylistService {
       movie.id = item.snippet.resourceId.videoId;
       movie.name = item.snippet.title;
       movie.imageUrl = item.snippet.thumbnails.medium.url;
+      movie.url = 'https://www.youtube.com/embed/' + item.snippet.resourceId.videoId;
+      movie.description = item.snippet.description;
+      // movie.name = item.snippet.title;
+      movies.push(movie);
+    });
+    return movies;
+  }
+
+  public getTenMovies() {
+    const playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems/?part=snippet';
+    const key = '&key=AIzaSyB63hhRSMPLS5NnL1ImxMz3vkf1pGMEStI';
+    const playlistId = '&playlistId=PL9TFlJz2Em7HYVYMG5QCz56BoGzt4qJTB';
+    let limit = '&maxResults=10';
+
+    let api = playlistUrl + playlistId + key + limit;
+
+    return this.http.get<any>(api);
+  }
+
+  public getCarrouselMovieData(result): Movie[] {
+    let movies: Movie[] = [];
+    result.items.forEach(item => {
+      let movie = new Movie();
+      movie.id = item.snippet.resourceId.videoId;
+      movie.name = item.snippet.title;
+      movie.imageUrl = item.snippet.thumbnails.high.url;
       movie.url = 'https://www.youtube.com/embed/' + item.snippet.resourceId.videoId;
       movie.description = item.snippet.description;
       // movie.name = item.snippet.title;
