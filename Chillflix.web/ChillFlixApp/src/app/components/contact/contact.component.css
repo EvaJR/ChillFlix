@@ -8,6 +8,16 @@
     color: rgba(255,255,255,.3);
 }
 
+.contact-section .card {
+
+    background-color: rgb(165, 165, 165);
+}
+
+.contact-section .card:hover {
+
+    background-color: rgb(90, 90, 90);
+}
+
 .contact-overlay {
     position: absolute;
     top: 65%;
@@ -15,4 +25,9 @@
     transform: translate(-50%, -50%);
 
 
+}
+
+img {
+    width: 100%;
+    margin: 0px;
 }
