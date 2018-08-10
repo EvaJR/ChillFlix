@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from '../../models/movie';
-import { Observable } from '../../../../node_modules/rxjs';
-import { ActivatedRoute } from '../../../../node_modules/@angular/router';
-import { MovieService } from '../services/movie.service';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-video-page',

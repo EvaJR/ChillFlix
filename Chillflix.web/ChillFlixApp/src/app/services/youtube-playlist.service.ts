@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpClient } from '../../../node_modules/@angular/common/http';
-import { Observable } from '../../../node_modules/rxjs';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Movie } from '../models/movie';
 
 const httpOptions = {
@@ -15,12 +15,8 @@ const httpOptions = {
 })
 export class YoutubePlaylistService {
 
-  playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems/?part=snippet';
-  key = '&key=AIzaSyB63hhRSMPLS5NnL1ImxMz3vkf1pGMEStI';
-  playlistId = '&playlistId=PLL1Mn_oZ39gzPGLzzfp04uLoOBQ9IBFmt';
-  limit = '&maxResults=12';
 
-  api = this.playlistUrl + this.playlistId + this.key + this.limit;
+
 
   constructor(
     private http: HttpClient
@@ -31,7 +27,14 @@ export class YoutubePlaylistService {
   // }
 
   public getAll() {
-    return this.http.get<any>(this.api);
+    const playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems/?part=snippet';
+    const key = '&key=AIzaSyB63hhRSMPLS5NnL1ImxMz3vkf1pGMEStI';
+    const playlistId = '&playlistId=PLL1Mn_oZ39gzPGLzzfp04uLoOBQ9IBFmt';
+    const limit = '&maxResults=12';
+
+    let api = playlistUrl + playlistId + key + limit;
+
+    return this.http.get<any>(api);
   }
 
   public getMovieData(result): Movie[] {
@@ -41,14 +44,35 @@ export class YoutubePlaylistService {
       movie.name = item.snippet.title;
       movie.imageUrl = item.snippet.thumbnails.medium.url;
       movie.url = 'https://www.youtube.com/embed/' + item.snippet.resourceId.videoId;
-      movie.description =  item.snippet.description;
-      
-      
+      movie.description = item.snippet.description;
       // movie.name = item.snippet.title;
       movies.push(movie);
     });
     return movies;
   }
+
+  public getMovieById(id: string) {
+
+    const base = 'https://www.googleapis.com/youtube/v3/videos/?part=snippet&id=';
+    const key = '&key=AIzaSyB63hhRSMPLS5NnL1ImxMz3vkf1pGMEStI';
+    let api = base + id + key;
+
+    return this.http.get<any>(api);
+  }
+
+  public fillMovieFromJson(result) {
+    let movie = new Movie();
+    movie.name = result.items[0].snippet.title;
+    movie.imageUrl = result.items[0].snippet.thumbnails.medium.url;
+    movie.url = 'https://www.youtube.com/embed/' + result.items[0].snippet.resourceId.videoId;
+    movie.description = result.items[0].snippet.description;
+
+    return movie;
+  }
+
+  // use part & Id
+
+
 
 
 

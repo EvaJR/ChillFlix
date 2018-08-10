@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { YoutubePlaylistService } from '../../services/youtube-playlist.service';
-import { Subscription } from '../../../../node_modules/rxjs';
+import { Subscription } from 'rxjs';
 import { Movie } from '../../models/movie';
 
 @Component({
@@ -23,13 +23,11 @@ export class YoutubePlaylistComponent implements OnInit {
       results  =>  {
         console.log('youtube content!', results);
         this.movies = this.youtubePlaylistService.getMovieData(results);
-        // this.thumbnails = thumbnails;
-
 
       },
       (error)  =>  {
         console.error('Failed ',  error);
-      })
+      });
   }
 
   ngOnDestroy() {

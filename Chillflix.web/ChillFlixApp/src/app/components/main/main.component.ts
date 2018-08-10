@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 // import { HttpClientService } from '@angular/core';
-import { MovieService } from '../services/movie.service';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-main',

@@ -2,7 +2,7 @@ import { AdminGuard } from './guards/admin.guard';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { MovieListComponent} from '../app/components/movie-list/movie-list.component'
+import { MovieListComponent} from './components/movie-list/movie-list.component'
 import { AdminComponent } from './components/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
