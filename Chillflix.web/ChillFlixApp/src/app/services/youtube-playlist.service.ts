@@ -29,7 +29,7 @@ export class YoutubePlaylistService {
   public getAll() {
     const playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems/?part=snippet';
     const key = '&key=AIzaSyB63hhRSMPLS5NnL1ImxMz3vkf1pGMEStI';
-    const playlistId = '&playlistId=PLL1Mn_oZ39gzPGLzzfp04uLoOBQ9IBFmt';
+    const playlistId = '&playlistId=PL9TFlJz2Em7HYVYMG5QCz56BoGzt4qJTB';
     const limit = '&maxResults=12';
 
     let api = playlistUrl + playlistId + key + limit;
