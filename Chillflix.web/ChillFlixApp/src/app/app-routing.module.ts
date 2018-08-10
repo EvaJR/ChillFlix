@@ -22,7 +22,7 @@ const routes: Routes = [
 
   { path: 'admin',
     component: AdminComponent,
-    canActivate: [AdminGuard]
+    // canActivate: [AdminGuard]
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // might be useful later
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // might be useful later

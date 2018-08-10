@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../models/movie';
-import { Subscription } from '../../../../node_modules/rxjs';
+import { Subscription } from 'rxjs';
 import { MovieService } from '../../services/movie.service';
-import { HttpClient } from '../../../../node_modules/@angular/common/http';
-import {RatingConfigComponent} from '../../components/rating-config/rating-config.component'
+import { HttpClient } from '@angular/common/http';
+import {RatingConfigComponent} from '../rating-config/rating-config.component'
 
 
 @Component({

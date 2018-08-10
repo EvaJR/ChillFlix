@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../models/movie';
 import { GenreFilterComponent } from '../genre-filter/genre-filter.component';
 import { Genre} from '../../models/genre';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-admin',
@@ -17,7 +19,7 @@ export class AdminComponent implements OnInit {
   movies: Movie[];
   editMovie: Movie;
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, ) { }
 
   ngOnInit() {
     this.getMovies();

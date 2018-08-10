@@ -3,8 +3,8 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { MovieService } from '../../services/movie.service';
-import { Movie } from 'src/app/models/movie';
-import { Subscription } from '../../../../node_modules/rxjs';
+import { Movie } from '../../models/movie';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-carousel',

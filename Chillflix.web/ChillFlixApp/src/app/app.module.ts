@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MatCardModule} from '@angular/material/card';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -11,7 +11,7 @@ import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavComponent } from './components/nav/nav.component';
 import { MovieService } from './services/movie.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { MovieListItemComponent } from './components/movie-list-item/movie-list-item.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +31,12 @@ import { HomeComponent } from './components/home/home.component';
 import { YoutubePlaylistComponent } from './components/youtube-playlist/youtube-playlist.component';
 import { YoutubePlaylistService } from './services/youtube-playlist.service';
 import { YoutubePlayerComponent } from './components/youtube-player/youtube-player.component';
+// import { UserComponent } from '../components/modal/user.ts';
+// import { UserComponent } from '../modal/user/user.component';
+import { AlertComponent } from './components/directives/alert.component';
+import { AlertService } from './services/alert.service';
+import { fakeBackendProvider, FakeBackendInterceptor, JwtInterceptor } from './components/helpers';
+// import { IndexComponent } from './components/directives/index/index.component';
 // import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
@@ -57,13 +63,18 @@ import { YoutubePlayerComponent } from './components/youtube-player/youtube-play
     HomeComponent,
     YoutubePlaylistComponent,
     YoutubePlayerComponent,
+    // UserComponent,
+    AlertComponent
+    // IndexComponent,
     // SortPipe
+    
   ],
   imports: [
     NgbModule.forRoot(),
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule
@@ -71,7 +82,19 @@ import { YoutubePlayerComponent } from './components/youtube-player/youtube-play
   exports: [
     EnumSelectPipe, NewMovieComponent,
   ],
-  providers: [MovieService, AdminGuard, YoutubePlaylistService ],
+  providers: [MovieService, AdminGuard, YoutubePlaylistService, AlertService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: FakeBackendInterceptor,
+      multi: true
+    },
+{
+  provide: HTTP_INTERCEPTORS,
+  useClass: JwtInterceptor,
+  multi: true
+}
+
+   ],
   bootstrap: [AppComponent]
 
 })
