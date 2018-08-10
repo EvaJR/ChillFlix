@@ -23,9 +23,9 @@ export class CarouselComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.subscription  =  this.youtubePlaylistService.getAll().subscribe(
+    this.subscription  =  this.youtubePlaylistService.getTenMovies().subscribe(
       results  =>  {
-        console.log('youtube content!', results);
+        console.log('carousel content!', results);
         this.movies = this.youtubePlaylistService.getMovieData(results);
         console.log(this.movies[0].name);
       },
