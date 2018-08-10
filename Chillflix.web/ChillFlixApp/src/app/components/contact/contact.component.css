@@ -1,0 +1,44 @@
+.contact-section .social a {
+    text-align: center;
+    height: 3rem;
+    width: 3rem;
+    background: rgba(255,255,255,.1);
+    border-radius: 100%;
+    line-height: 3rem;
+    color: rgba(255,255,255,.3);
+}
+
+.card:hover {
+
+    background-color: #020202;
+}
+
+.card {
+    background-color:  rgb(24, 27, 29);
+}
+
+h4 {
+    color: #1F9FE4;
+}
+
+h4 .card:hover{
+
+    color: #67C4E9;
+}
+
+
+
+.contact-overlay {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+}
+
+img {
+    width: 100%;
+    margin: 0px;
+}
+

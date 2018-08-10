@@ -31,6 +31,7 @@ import { HomeComponent } from './components/home/home.component';
 import { YoutubePlaylistComponent } from './components/youtube-playlist/youtube-playlist.component';
 import { YoutubePlaylistService } from './services/youtube-playlist.service';
 import { YoutubePlayerComponent } from './components/youtube-player/youtube-player.component';
+import { ContactComponent } from './components/contact/contact.component';
 // import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
@@ -57,6 +58,7 @@ import { YoutubePlayerComponent } from './components/youtube-player/youtube-play
     HomeComponent,
     YoutubePlaylistComponent,
     YoutubePlayerComponent,
+    ContactComponent,
     // SortPipe
   ],
   imports: [
