@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {MatCardModule} from '@angular/material/card';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -22,6 +24,11 @@ import { VideoPlayerComponent } from './components/video-player/video-player.com
 import { VideoPageComponent } from './components/video-page/video-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminGuard } from './guards/admin.guard';
+import { BootstrapTestComponent } from './components/bootstrap-test/bootstrap-test.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { CardComponent } from './components/card/card.component';
+import { RatingConfigComponent } from './components/rating-config/rating-config.component';
+import { HomeComponent } from './components/home/home.component';
 // import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
@@ -37,11 +44,16 @@ import { AdminGuard } from './guards/admin.guard';
     EnumSelectPipe,
     AdminComponent,
     NewMovieComponent,
+    BootstrapTestComponent,
 
     MovieListItemComponent,
     VideoPlayerComponent,
     VideoPageComponent,
     LoginComponent,
+    CarouselComponent,
+    CardComponent,
+    RatingConfigComponent,
+    HomeComponent,
     // SortPipe
   ],
   imports: [
@@ -49,12 +61,15 @@ import { AdminGuard } from './guards/admin.guard';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   exports: [
-    EnumSelectPipe
+    EnumSelectPipe, NewMovieComponent,
   ],
   providers: [MovieService, AdminGuard ],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }

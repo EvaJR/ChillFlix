@@ -16,7 +16,6 @@ export class NewMovieComponent implements OnInit, OnDestroy {
   eightLatestMovies: number[];
 
 
-
   subscription: Subscription;
   movies: Array<Movie>;
   // link: "../../../assets/images/diehard.jpg"
