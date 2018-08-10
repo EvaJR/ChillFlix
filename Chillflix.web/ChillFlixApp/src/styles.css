@@ -35,6 +35,11 @@
 
 
   */
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 
   #chill-blue {color: #67C4E9}
   #chill-blue-background {background-color: #67C4E9}
