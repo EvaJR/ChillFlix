@@ -7,12 +7,14 @@ import { AdminComponent } from './components/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CardComponent } from './components/card/card.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
   { path: 'movie-list', component: MovieListComponent },
   { path: 'home', component: HomeComponent },
   { path: 'featured', component: CarouselComponent },
   { path: 'movie-cards', component: CardComponent },
+  { path: 'contact', component: ContactComponent },
   { path: 'admin',
     component: AdminComponent,
     canActivate: [AdminGuard]

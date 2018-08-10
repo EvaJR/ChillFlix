@@ -29,6 +29,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { CardComponent } from './components/card/card.component';
 import { RatingConfigComponent } from './components/rating-config/rating-config.component';
 import { HomeComponent } from './components/home/home.component';
+import { ContactComponent } from './components/contact/contact.component';
 // import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
@@ -54,6 +55,7 @@ import { HomeComponent } from './components/home/home.component';
     CardComponent,
     RatingConfigComponent,
     HomeComponent,
+    ContactComponent,
     // SortPipe
   ],
   imports: [
