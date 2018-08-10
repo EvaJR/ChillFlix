@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
-import { Observable } from '../../../../node_modules/rxjs';
-import { Movie } from '../../models/movie';
+import { Observable } from 'rxjs';
+import { Movie } from '../models/movie';
 
 const httpOptions = {
   headers: new HttpHeaders({

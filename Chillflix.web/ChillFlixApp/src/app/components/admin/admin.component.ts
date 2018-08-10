@@ -1,4 +1,4 @@
-import { MovieService } from './../services/movie.service';
+import { MovieService } from '../../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../models/movie';
 import { GenreFilterComponent } from '../genre-filter/genre-filter.component';
