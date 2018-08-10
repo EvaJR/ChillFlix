@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'featured', component: CarouselComponent },
   { path: 'movie-cards', component: CardComponent },
   { path: 'youtube-playlist', component: YoutubePlaylistComponent },
-  { path: 'youtube-player', component: YoutubePlayerComponent },
+  { path: 'youtube-player/:id', component: YoutubePlayerComponent },
 
 
   { path: 'admin',
