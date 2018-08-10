@@ -36,6 +36,7 @@ import { YoutubePlayerComponent } from './components/youtube-player/youtube-play
 import { AlertComponent } from './components/directives/alert.component';
 import { AlertService } from './services/alert.service';
 import { fakeBackendProvider, FakeBackendInterceptor, JwtInterceptor } from './components/helpers';
+import { ContactComponent } from './components/contact/contact.component';
 // import { IndexComponent } from './components/directives/index/index.component';
 // import { SortPipe } from './pipes/sort.pipe';
 
@@ -64,8 +65,9 @@ import { fakeBackendProvider, FakeBackendInterceptor, JwtInterceptor } from './c
     YoutubePlaylistComponent,
     YoutubePlayerComponent,
     // UserComponent,
-    AlertComponent
+    AlertComponent,
     // IndexComponent,
+    ContactComponent,
     // SortPipe
     
   ],

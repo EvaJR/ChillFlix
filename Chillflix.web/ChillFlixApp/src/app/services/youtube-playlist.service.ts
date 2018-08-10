@@ -29,20 +29,48 @@ export class YoutubePlaylistService {
   public getAll() {
     const playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems/?part=snippet';
     const key = '&key=AIzaSyB63hhRSMPLS5NnL1ImxMz3vkf1pGMEStI';
-    const playlistId = '&playlistId=PLL1Mn_oZ39gzPGLzzfp04uLoOBQ9IBFmt';
-    const limit = '&maxResults=12';
+    const playlistId = '&playlistId=PL9TFlJz2Em7HYVYMG5QCz56BoGzt4qJTB';
+    let limit = '&maxResults=40';
 
     let api = playlistUrl + playlistId + key + limit;
 
     return this.http.get<any>(api);
   }
 
+
   public getMovieData(result): Movie[] {
     let movies: Movie[] = [];
     result.items.forEach(item => {
       let movie = new Movie();
+      movie.id = item.snippet.resourceId.videoId;
       movie.name = item.snippet.title;
       movie.imageUrl = item.snippet.thumbnails.medium.url;
+      movie.url = 'https://www.youtube.com/embed/' + item.snippet.resourceId.videoId;
+      movie.description = item.snippet.description;
+      // movie.name = item.snippet.title;
+      movies.push(movie);
+    });
+    return movies;
+  }
+
+  public getTenMovies() {
+    const playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems/?part=snippet';
+    const key = '&key=AIzaSyB63hhRSMPLS5NnL1ImxMz3vkf1pGMEStI';
+    const playlistId = '&playlistId=PL9TFlJz2Em7HYVYMG5QCz56BoGzt4qJTB';
+    let limit = '&maxResults=10';
+
+    let api = playlistUrl + playlistId + key + limit;
+
+    return this.http.get<any>(api);
+  }
+
+  public getCarrouselMovieData(result): Movie[] {
+    let movies: Movie[] = [];
+    result.items.forEach(item => {
+      let movie = new Movie();
+      movie.id = item.snippet.resourceId.videoId;
+      movie.name = item.snippet.title;
+      movie.imageUrl = item.snippet.thumbnails.high.url;
       movie.url = 'https://www.youtube.com/embed/' + item.snippet.resourceId.videoId;
       movie.description = item.snippet.description;
       // movie.name = item.snippet.title;
@@ -61,11 +89,16 @@ export class YoutubePlaylistService {
   }
 
   public fillMovieFromJson(result) {
-    let movie = new Movie();
+    let movie  = new Movie();
     movie.name = result.items[0].snippet.title;
     movie.imageUrl = result.items[0].snippet.thumbnails.medium.url;
-    movie.url = 'https://www.youtube.com/embed/' + result.items[0].snippet.resourceId.videoId;
+    movie.url = 'https://www.youtube.com/embed/' + result.items[0].id;
     movie.description = result.items[0].snippet.description;
+
+    console.log("OBJ: ");
+    console.log(movie);
+    console.log("descriptionfrom json" +result.items[0].id);
+    console.log("description from local Obj" +movie.url);
 
     return movie;
   }
