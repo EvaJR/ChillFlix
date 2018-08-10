@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { YoutubePlaylistService } from '../../services/youtube-playlist.service';
 import { Subscription } from 'rxjs';
 import { Movie } from '../../models/movie';
@@ -8,7 +8,7 @@ import { Movie } from '../../models/movie';
   templateUrl: './youtube-playlist.component.html',
   styleUrls: ['./youtube-playlist.component.css']
 })
-export class YoutubePlaylistComponent implements OnInit {
+export class YoutubePlaylistComponent implements OnInit, OnDestroy {
 
   subscription:  Subscription;
   movies: Movie[];
