@@ -61,22 +61,10 @@ body {
   * {
     font-family: 'Permanent Marker';
   }
-<<<<<<< HEAD
-  
-=======
-
- 
-
->>>>>>> 8f3b54387db3a3676c6d97736421c0be59dfe933
-  .container-fluid {
+.container-fluid {
     width: 100%;
     padding-right: 0px;
     padding-left: 0px;
     margin-right: auto;
     margin-left: auto;
-<<<<<<< HEAD
-  }
-=======
 }
-  
->>>>>>> 8f3b54387db3a3676c6d97736421c0be59dfe933
