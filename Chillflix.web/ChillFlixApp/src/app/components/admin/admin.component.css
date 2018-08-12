@@ -1,3 +1,9 @@
+.basic_text {
+  font-family : verdana!important;
+  color : rgb(194, 194, 194);
+  
+}
+
 .movies {
     margin: 0 0 2em 0;
     list-style-type: none;
