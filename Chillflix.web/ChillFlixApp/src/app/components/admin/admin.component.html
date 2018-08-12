@@ -1,65 +1,87 @@
-<h2>Welcome admin</h2><p></p>
-<ul>
-    <B>
-        <td width="40px">Id </td>
-        <td width="250px">Name </td>
-        <td width="250px">Url </td>
-        <td width="250px">Genre</td>
-        <td width="300px">Description</td>
-        <td width="300px">Image Url</td>
+<div class="basic_text container">
+  <br />
+  <br />
+  <h2>Welcome admin</h2>
+  <br />
+  <br />
+  <table>
+  
+        <thead>
+            <th class="basic_text" padding="2000px">Id </th>
+            <th class="basic_text">Name </th>
+            <th class="basic_text" >Url </th>
+            <th class="basic_text" >Genre</th>
+            <th class="basic_text">Description</th>
+            <th class="basic_text">Image Url</th>
+        </thead>
 
-      </B>
-      
+        <tr *ngFor="let movie of movies; let i = index" class="basic_text" (click)="edit(movie)">
+            <td class="basic_text">{{movie.id}} </td>
 
-  <li *ngFor="let movie of movies; let i = index">
-    <tr>
-        <a (click)="edit(movie)">
-          <td width="40px">{{movie.id}} </td>
+            <td class="basic_text">
+              <span class="basic_text" *ngIf="movie!==editMovie">{{movie.name}}</span>
+              <input class="basic_text" *ngIf="movie===editMovie" [(ngModel)]="movie.name" (blur)="update()" (keyup.enter)="update()">
+            </td>
 
-          <td width="250px"> 
-          <span *ngIf="movie!==editMovie">{{movie.name}}</span>
-          <input *ngIf="movie===editMovie" [(ngModel)]="movie.name" (blur)="update()" (keyup.enter)="update()"></td>
+            <td>
+              <span class="basic_text" *ngIf="movie!==editMovie">{{movie.url}}</span>
+              <input class="basic_text" *ngIf="movie===editMovie" [(ngModel)]="movie.url" (blur)="update()" (keyup.enter)="update()"> </td>
 
-          <td width="250px">
-          <span *ngIf="movie!==editMovie">{{movie.url}}</span>
-          <input *ngIf="movie===editMovie" [(ngModel)]="movie.url" (blur)="update()" (keyup.enter)="update()"> </td>
+            <td>
+              <span class="basic_text" *ngIf="movie!==editMovie">{{movie.genre}}</span>
 
-          <td width="250px">
-          <span *ngIf="movie!==editMovie">{{movie.genre}}</span>
+              <select #movieGenre *ngIf="movie===editMovie" [(ngModel)]="movie.genre" (blur)="update()" (keyup.enter)="update()">
+                <option *ngFor="let genre of genres | enumSelect" [value]="genre.key">{{genre.value}}</option>
+              </select>
+            </td>
 
-          <select #movieGenre *ngIf="movie===editMovie" [(ngModel)]="movie.genre" (blur)="update()" (keyup.enter)="update()">
-            <option *ngFor="let genre of genres | enumSelect" [value]="genre.key">{{genre.value}}</option>
-          </select></td>
+            <td>
+              <span class="basic_text" *ngIf="movie!==editMovie">{{movie.description}}</span>
+              <input class="basic_text" *ngIf="movie===editMovie" [(ngModel)]="movie.description" (blur)="update()" (keyup.enter)="update()">
+            </td>
 
-          <td width="300px">
-          <span *ngIf="movie!==editMovie">{{movie.description}}</span>
-          <input *ngIf="movie===editMovie" [(ngModel)]="movie.description" (blur)="update()" (keyup.enter)="update()"></td>
+            <td>
+              <span class="basic_text" *ngIf="movie!==editMovie">{{movie.imageUrl}}</span>
+              <input class="basic_text" *ngIf="movie===editMovie" [(ngModel)]="movie.imageUrl" (blur)="update()" (keyup.enter)="update()">
+            </td>
 
-          <td width="300px">
-          <span *ngIf="movie!==editMovie">{{movie.imageUrl}}</span>
-          <input *ngIf="movie===editMovie" [(ngModel)]="movie.imageUrl" (blur)="update()" (keyup.enter)="update()"></td>
-    
-        </a>
-    
-      <td width="20px"><button class="delete" title="delete movie"
-        (click)="delete(movie)">x</button>
-    </td>
+          <td>
+            <button class="basic_text" class="delete" title="delete movie" (click)="delete(movie)">x</button>
+          </td>
+        </tr>
+  </table>
+  <br />
+  <br />
+  <h4 class="basic_text">Add Movies</h4>
+  <p></p>
+  <div class="basic_text">
+    <tr class="basic_text">
+      <label class="basic_text">
+        <b>
+          <td class="basic_text" width="250px">Name:
+            <input class="basic_text" #movieName />
+          </td>
+          <td class="basic_text" width="230px">Url:
+            <input class="basic_text" #movieUrl />
+          </td>
+          <td class="basic_text" width="200px">Genre:
+            <select #movieGenre>
+              <option class="basic_text" *ngFor="let genre of genres | enumSelect" [value]="genre.key">{{genre.value}}</option>
+            </select>
+          </td>
+          <td class="basic_text" width="300px">Description:
+            <input #movieDescription />
+          </td>
+          <td class="basic_text" width="300px">Image url:
+            <input #movieImgUrl />
+          </td>
+          <td class="basic_text" width="15px">
+            <button class="basic_text" (click)="add(movieName.value, movieUrl.value, movieGenre.value, movieDescription.value, movieImgUrl.value) ; movieName.value=''; movieUrl.value=''; movieGenre.value=''; movieDescription.value=''; movieImgUrl.value=''">
+              add
+            </button>
+          </td>
+        </b>
+      </label>
     </tr>
-  </li>
-</ul>
-
-<h4>Add Movies</h4><p></p>
-<div>
-  <tr>
-    <label><b>
-    <td width="250px">Name: <input #movieName /></td>
-    <td width="230px">Url: <input #movieUrl /></td>
-    <td width="200px">Genre: <select #movieGenre><option *ngFor="let genre of genres | enumSelect" [value]="genre.key">{{genre.value}}</option></select></td>
-    <td width="300px">Description: <input #movieDescription /></td>
-    <td width="300px">Image url: <input #movieImgUrl /></td>
-    <td width="15px"><button (click)="add(movieName.value, movieUrl.value, movieGenre.value, movieDescription.value, movieImgUrl.value) ; movieName.value=''; movieUrl.value=''; movieGenre.value=''; movieDescription.value=''; movieImgUrl.value=''">
-          add
-    </button></td></b>
-    </label>
-  </tr>
+  </div>
 </div>
