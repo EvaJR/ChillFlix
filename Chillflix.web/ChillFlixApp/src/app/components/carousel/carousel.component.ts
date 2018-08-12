@@ -2,9 +2,9 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
-import { MovieService } from '../../services/movie.service';
 import { Movie } from 'src/app/models/movie';
 import { Subscription } from '../../../../node_modules/rxjs';
+import { MovieService } from '../../services/movie.service';
 import { YoutubePlaylistService } from '../../services/youtube-playlist.service';
 
 @Component({
