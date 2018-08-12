@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginComponent} from '../login/login.component';
-import { ModalComponent } from '../modal/modal.component';
+import { AppModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
+  
 })
 export class NavComponent implements OnInit {
 

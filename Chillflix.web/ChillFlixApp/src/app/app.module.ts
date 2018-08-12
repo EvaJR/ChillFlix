@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {MatCardModule} from '@angular/material/card';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -32,7 +32,7 @@ import { YoutubePlaylistComponent } from './components/youtube-playlist/youtube-
 import { YoutubePlaylistService } from './services/youtube-playlist.service';
 import { YoutubePlayerComponent } from './components/youtube-player/youtube-player.component';
 // import { UserComponent } from '../components/modal/user.ts';
-// import { UserComponent } from '../modal/user/user.component';
+import { AppModalComponent } from './components/modal/modal.component';
 import { AlertComponent } from './components/directives/alert.component';
 import { AlertService } from './services/alert.service';
 import { fakeBackendProvider, FakeBackendInterceptor, JwtInterceptor } from './components/helpers';
@@ -64,7 +64,7 @@ import { ContactComponent } from './components/contact/contact.component';
     HomeComponent,
     YoutubePlaylistComponent,
     YoutubePlayerComponent,
-    // UserComponent,
+    AppModalComponent,
     AlertComponent,
     // IndexComponent,
     ContactComponent,
@@ -84,7 +84,7 @@ import { ContactComponent } from './components/contact/contact.component';
   exports: [
     EnumSelectPipe, NewMovieComponent,
   ],
-  providers: [MovieService, AdminGuard, YoutubePlaylistService, AlertService,
+  providers: [MovieService, AdminGuard, YoutubePlaylistService, AlertService, NgbActiveModal,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: FakeBackendInterceptor,

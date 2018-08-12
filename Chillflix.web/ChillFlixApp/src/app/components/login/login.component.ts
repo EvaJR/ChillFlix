@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { NgbModule, NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -6,7 +6,8 @@ import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '../../services/authentication.service';
 import { AlertService,  } from '../../services/alert.service';
-
+import { AppModalComponent } from '../modal/modal.component';
+import { EventEmitter } from '../../../../node_modules/protractor';
 
 @Component({
   selector: 'app-login',
@@ -61,6 +62,7 @@ export class LoginComponent implements OnInit {
                   console.log(' succes');
                     this.router.navigate([this.returnUrl]);
                     this.loading = false;
+
                 },
                 error => {
                   console.log(' error');
